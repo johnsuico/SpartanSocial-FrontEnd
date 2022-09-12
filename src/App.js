@@ -7,8 +7,8 @@ import "./App.css";
 
 // Import Page Components
 import Landing from "./Components/Landing/landing";
-import Login from './Components/Login/login';
-import CreateAccount from './Components/CreateAccount/createAccount';
+import Login from './Components/Login-Create/Login/login';
+import CreateAccount from './Components/Login-Create/CreateAccount/createAccount';
 
 function App() {
   return (

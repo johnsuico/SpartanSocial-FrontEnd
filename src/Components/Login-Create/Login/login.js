@@ -50,35 +50,35 @@ export default function Login() {
 
   return(
     // Login Page Container
-    <div className="login-container">
+    <div className="left-side-container">
 
       {/* Left hand side container */}
-      <div className="left-login-container half-container">
+      <div className="half-container">
 
         {/* Left side content container */}
-        <div className="login-content-container">
+        <div className="left-content-container">
 
           {/* Logo container */}
-          <div className="login-logo">
+          <div className="left-logo">
             <Link to="/"><img src={logo} alt="Spartan Social Logo" /></Link>
           </div>
 
           {/* Login form container */}
-          <form className="login-form" onSubmit={handleLogin}>
+          <form className="account-form" onSubmit={handleLogin}>
 
-            <div className="login-header-container">
-              <h1 className="login-header">Log in</h1>
-              <p className="login-header-caption">Welcome back! Please enter in your details.</p>
+            <div className="account-header-container">
+              <h1 className="account-header">Log in</h1>
+              <p className="account-header-caption">Welcome back! Please enter in your details.</p>
             </div>
 
-            <div className = "login-form-field">
+            <div className = "account-form-field">
               <label className = "form-label">Email</label>
-              <input className = "login-input-field" type ="text" onChange={emailChange} value={email} placeholder="Email"/>
+              <input className = "account-input-field" type ="text" onChange={emailChange} value={email} placeholder="Email"/>
             </div>
 
-            <div className="login-form-field">
+            <div className="account-form-field">
               <label className="form-label">Password</label>
-              <input className="login-input-field" type="password" onChange={passChange} value={password} placeholder="Password"/>
+              <input className="account-input-field" type="password" onChange={passChange} value={password} placeholder="Password"/>
             </div>
 
             <div className="login-extra-container">
@@ -88,17 +88,17 @@ export default function Login() {
               </div>
 
               <div className="forgot-pass-container">
-                <Link to="/" className="login-link">
+                <Link to="/" className="account-link">
                   <p>Forgot password?</p>
                 </Link>
               </div>
             </div>
 
-            <button className="login-btn" type="submit">Log in</button>
+            <button className="submit-btn" type="submit">Log in</button>
         
             <div className="make-account-container">
               <p className="make-account-caption">Don't have an account?</p>
-              <Link to="/createAccount" className="login-link">Sign up here</Link>
+              <Link to="/createAccount" className="account-link">Sign up here</Link>
             </div>
 
           </form> {/* End of login form*/}
