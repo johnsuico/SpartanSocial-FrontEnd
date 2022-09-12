@@ -98,7 +98,7 @@ export default function Login() {
         
             <div className="make-account-container">
               <p className="make-account-caption">Don't have an account?</p>
-              <Link to="/" className="login-link">Sign up here</Link>
+              <Link to="/createAccount" className="login-link">Sign up here</Link>
             </div>
 
           </form> {/* End of login form*/}
