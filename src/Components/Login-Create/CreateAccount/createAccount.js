@@ -89,7 +89,7 @@ export default function Login() {
         
             <div className="account-extra-container">
               <p className="account-extra-caption">Already have an account?</p>
-              <Link to="/createAccount" className="account-link">Log in here</Link>
+              <Link to="/login" className="account-link">Log in here</Link>
             </div>
 
           </form> {/* End of login form*/}
