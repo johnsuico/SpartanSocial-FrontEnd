@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 
 // Import CSS
 import './login.css';
+import '../account.css';
 
 // Import SVGs
-import logo from './SpartanSocialLogo.svg';
+import logo from '../SpartanSocialLogo.svg';
 import rhsGraphic from './rightside-graphic.svg';
 
 export default function Login() {
@@ -96,8 +97,8 @@ export default function Login() {
 
             <button className="submit-btn" type="submit">Log in</button>
         
-            <div className="make-account-container">
-              <p className="make-account-caption">Don't have an account?</p>
+            <div className="account-extra-container">
+              <p className="account-extra-caption">Don't have an account?</p>
               <Link to="/createAccount" className="account-link">Sign up here</Link>
             </div>
 
@@ -109,16 +110,24 @@ export default function Login() {
 
       {/* Right hand side container */}
       <div className="right-login-container half-container">
+
         <div className="right-content-container">
+
           <div className="right-content">
+
             <img src={rhsGraphic} alt="Login graphic" className="rhsGraphic" />
+
             <div className="right-content-info">
               <h2 className="right-content-header">Welcome to SpartanSocial</h2>
               <p className="right-content-caption">Sign in to start asking questions</p>
+            </div>
+
           </div>
-          </div>
+
         </div>
+
       </div>
+
     </div>
   )
 }
