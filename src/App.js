@@ -9,6 +9,8 @@ import "./App.css";
 import Landing from "./Components/Landing/landing";
 import Login from './Components/Login-Create/Login/login';
 import CreateAccount from './Components/Login-Create/CreateAccount/createAccount';
+import CreateAccount2 from './Components/Login-Create/CreateAccount/accountInfo';
+import CreateAccount3 from './Components/Login-Create/CreateAccount/accountOptInfo';
 
 function App() {
   return (
@@ -21,6 +23,12 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/createAccount" element={<CreateAccount />}> </Route>
+      </Routes>
+      <Routes>
+        <Route path="/createAccount/:id/cp2" element={<CreateAccount2 />}> </Route>
+      </Routes>
+      <Routes>
+        <Route path="/createAccount/:id/cp3" element={<CreateAccount3 />}> </Route>
       </Routes>
     </Router> 
   )
