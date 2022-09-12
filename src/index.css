@@ -1,13 +1,28 @@
-body {
+/* Google Font "Inter" */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Colors for the website */
+:root {
+  /* Primary Colors */
+  --SJSUBlue: #0055A2;
+  --SJSUGold: #E8A823;
+  --SJSUGray: #939597;
+
+  /* Secondary Colors */
+  --SecBlue: #1C88F4;
+  --SecDarkGray: #666666;
+  --SecLightGray: #D2D2D2;
+
+  /* Text Colors */
+  --GrayCaption: #BBB;
 }

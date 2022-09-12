@@ -7,12 +7,16 @@ import "./App.css";
 
 // Import Page Components
 import Landing from "./Components/Landing/landing";
+import Login from './Components/Login/login';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Landing />}>    </Route>
+        <Route exact path="/" element={<Landing />}>    </Route>
+      </Routes>
+      <Routes>
+        <Route path="/login" element={<Login />}> </Route>
       </Routes>
     </Router> 
   )
