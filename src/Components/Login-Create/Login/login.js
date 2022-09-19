@@ -41,7 +41,8 @@ export default function Login() {
     // Creating a JSON
     const user = {
       email,
-      password
+      password,
+      checked
     }
 
     console.log(user);
@@ -83,9 +84,9 @@ export default function Login() {
             </div>
 
             <div className="login-extra-container">
-              <div className="remember-me-container">
-                <input type="checkbox" className="remember-me-check" />
-                <label htmlFor="" className="remember-me-caption">Remember me</label>
+              <div className="account-check-container">
+                <input type="checkbox" className="account-check" value={checked} onChange={onCheck}/>
+                <label className="remember-me-caption">Remember me</label>
               </div>
 
               <div className="forgot-pass-container">
