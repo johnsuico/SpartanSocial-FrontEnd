@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 // Import CSS
 import '../account.css';
+import './createAccount.css';
 
 // Import SVGs
 import logo from '../SpartanSocialLogo.svg';
@@ -80,9 +81,12 @@ export default function Login() {
               <input className="account-input-field" type="password" onChange={passChange} value={password} placeholder="Password"/>
             </div>
 
-            <div className="account-form-field">
+            <div className="account-form-field last-account-form-field">
               <label className="form-label">Confirm Password</label>
-              <input className="account-input-field" type="password" onChange={confirmChange} value={confirmPass} placeholder="Confirm password"/>
+              <input className={confirmPass === password ? "account-input-field" : "account-input-field confirm-pass-wrong"} type="password" onChange={confirmChange} value={confirmPass} placeholder="Confirm password"/>
+              {confirmPass != password &&
+                <p className="password-no-match">Passwords do not match</p>
+              }
             </div>
 
             <button className="submit-btn" type="submit">Create account</button>
