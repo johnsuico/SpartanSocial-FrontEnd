@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 // Import CSS
 import '../account.css';
+import './accountInfo.css';
 
 // Import SVGs
 import logo from '../SpartanSocialLogo.svg';
@@ -53,6 +54,12 @@ export default function Login() {
 
     // Creating a JSON
     const user = {
+      firstName,
+      lastName,
+      userName,
+      major,
+      useDisplay,
+      isStudent
     }
 
     console.log(user);
@@ -76,11 +83,11 @@ export default function Login() {
           </div>
 
           {/* Login form container */}
-          <form className="account-form" onSubmit={handleSubmit}>
+          <form className="account-form account-info-form" onSubmit={handleSubmit}>
 
             <div className="account-header-container">
               <h1 className="account-header">Account Information</h1>
-              <p className="account-header-caption">Let's to know you.</p>
+              <p className="account-header-caption">Let's get to know you.</p>
             </div>
 
             <div className = "account-form-field">
@@ -99,8 +106,8 @@ export default function Login() {
             </div>
 
             <div className="account-check-container">
-              <input type="checkbox" className="account-check" />
-              <label htmlFor="" className="account-check-caption">Use display name</label>
+              <input type="checkbox" className="account-check" onChange={onUseDisplay}/>
+              <label className="account-check-caption account-info-check">Use display name</label>
             </div>
 
             <div className="account-form-field">
@@ -109,8 +116,8 @@ export default function Login() {
             </div>
 
             <div className="account-check-container">
-              <input type="checkbox" className="account-check" />
-              <label htmlFor="" className="account-check-caption">Current Student</label>
+              <input type="checkbox" className="account-check" onChange={onStudent}/>
+              <label className="account-check-caption account-info-check">Current Student</label>
             </div>
 
             <button className="submit-btn" type="submit">Create account</button>
