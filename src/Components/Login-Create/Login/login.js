@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Import CSS
 import './login.css';
@@ -16,6 +16,8 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checked, setCheck] = useState(false);
+
+  const navigate = useNavigate();
 
   // Takes the value from the email field and sets the "email" hook to its value
   function emailChange(e) {
@@ -41,13 +43,19 @@ export default function Login() {
     // Creating a JSON
     const user = {
       email,
-      password,
-      checked
+      password
     }
 
     console.log(user);
 
-    // Add axios link here later
+    Axios.post("https://spartansocial-api.herokuapp.com/users/auth", user)
+    .then(res => {
+      navigate('/');
+      console.log(res.data);
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
 
   return(
