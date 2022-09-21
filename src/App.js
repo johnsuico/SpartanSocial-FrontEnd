@@ -1,6 +1,6 @@
 // React depencies for app to work
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider} from "react-router-dom";
 
 // Import Master CSS
 import "./App.css";
@@ -12,25 +12,32 @@ import CreateAccount from './Components/Login-Create/CreateAccount/createAccount
 import CreateAccount2 from './Components/Login-Create/CreateAccount/accountInfo';
 import CreateAccount3 from './Components/Login-Create/CreateAccount/accountOptInfo';
 
+const router = createBrowserRouter ([
+  {
+    path: "/",
+    element: <Landing />
+  },
+  {
+    path: "/login",
+    element: <Login />
+  },
+  {
+    path: "/createAccount",
+    element: <CreateAccount />
+  },
+  {
+    path: "/createAccount/:id/cp2",
+    element: <CreateAccount2 />
+  },
+  {
+    path: "/createAccount/:id/cp3",
+    element: <CreateAccount3 />
+  }
+])
+
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<Landing />}>    </Route>
-      </Routes>
-      <Routes>
-        <Route path="/login" element={<Login />}> </Route>
-      </Routes>
-      <Routes>
-        <Route path="/createAccount" element={<CreateAccount />}> </Route>
-      </Routes>
-      <Routes>
-        <Route path="/createAccount/:id/cp2" element={<CreateAccount2 />}> </Route>
-      </Routes>
-      <Routes>
-        <Route path="/createAccount/:id/cp3" element={<CreateAccount3 />}> </Route>
-      </Routes>
-    </Router> 
+    <RouterProvider router={router} />
   )
 }
 
