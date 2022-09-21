@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
 // Import CSS
 import '../account.css';
@@ -16,6 +16,8 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
+
+  const navigate = useNavigate();
 
   // Takes the value from the email field and sets the "email" hook to its value
   function emailChange(e) {
@@ -43,9 +45,14 @@ export default function Login() {
       confirmPass
     }
 
-    console.log(user);
+    Axios.post(`https://spartansocial-api.herokuapp.com/users/register`, user)
+    .then(res => {
+      navigate(`/createAccount/${res.data.newRegUser.user_id}/cp2`);
+    })
+    .catch (err => {
+      console.log(err);
+    })
 
-    // Add axios link here later
   }
 
   return(
@@ -84,7 +91,7 @@ export default function Login() {
             <div className="account-form-field last-account-form-field">
               <label className="form-label">Confirm Password</label>
               <input className={confirmPass === password ? "account-input-field" : "account-input-field confirm-pass-wrong"} type="password" onChange={confirmChange} value={confirmPass} placeholder="Confirm password"/>
-              {confirmPass != password &&
+              {confirmPass !== password &&
                 <p className="password-no-match">Passwords do not match</p>
               }
             </div>

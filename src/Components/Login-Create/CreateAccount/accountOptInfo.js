@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 // Import CSS
 import '../account.css';
@@ -18,6 +18,10 @@ export default function Login() {
   const [pronouns, setPronouns] = useState('');
   const [gender, setGender] = useState('');
   const [bio, setBio] = useState('');
+
+  const navigate = useNavigate();
+
+  const { id } = useParams();
 
   // Takes the value from the email field and sets the "email" hook to its value
   function gradDateChange(e) {
@@ -42,15 +46,13 @@ export default function Login() {
     setBio(e.target.value);
   }
 
-
-
   // Handles login by taking the info and putting it in JSON format to send to the API
   function handleSubmit(e) {
     // Prevents the page from reloading on form submit
     e.preventDefault();
 
     // Creating a JSON
-    const user = {
+    const updateAccountInfo = {
       gradDate,
       birth,
       pronouns,
@@ -58,7 +60,13 @@ export default function Login() {
       bio
     }
 
-    console.log(user);
+    Axios.post(`https://spartansocial-api.herokuapp.com/users/${id}/register/cp3`, updateAccountInfo)
+    .then(res => {
+      navigate(`/`);
+    })
+    .catch (err => {
+      console.log(err);
+    })
 
     // Add axios link here later
   }

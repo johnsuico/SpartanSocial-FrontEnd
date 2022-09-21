@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 // Import CSS
 import '../account.css';
@@ -19,8 +19,12 @@ export default function Login() {
   const [major, setMajor] = useState('');
 
   // React hooks for checkboxs
-  const [useDisplay, setDisplay] = useState(false);
+  const [useDisplayName, setDisplay] = useState(false);
   const [isStudent, setStudent] = useState(false);
+
+  const navigate = useNavigate();
+
+  const { id } = useParams();
 
   // Takes the value from the email field and sets the "email" hook to its value
   function firstNameChange(e) {
@@ -40,7 +44,7 @@ export default function Login() {
   }
 
   function onUseDisplay() {
-    setDisplay(!useDisplay);
+    setDisplay(!useDisplayName);
   }
 
   function onStudent() {
@@ -53,18 +57,23 @@ export default function Login() {
     e.preventDefault();
 
     // Creating a JSON
-    const user = {
+    const updateAccountInfo = {
       firstName,
       lastName,
       userName,
       major,
-      useDisplay,
+      useDisplayName,
       isStudent
     }
 
-    console.log(user);
+    Axios.post(`https://spartansocial-api.herokuapp.com/users/${id}/register/cp2`, updateAccountInfo)
+    .then(res => {
+      navigate(`/createAccount/${id}/cp3`);
+    })
+    .catch (err => {
+      console.log(err);
+    })
 
-    // Add axios link here later
   }
 
   return(
