@@ -1,0 +1,55 @@
+.navbar-container {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin: auto;
+  padding: 10px 0;
+}
+
+.nav-logo {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.navbar-quicklinks {
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--SecDarkGray);
+}
+
+.link:hover {
+  color: var(--SJSUBlue);
+  border-bottom: 1px solid var(--SJSUBlue);
+}
+
+.CTA-btn {
+  background-color: var(--SJSUBlue);
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.CTA-btn:hover {
+  background-color: var(--SecBlue);
+}
+
+/* Logged In Navbar CSS */
+.navbar-rightside {
+  display: flex;
+  align-items: center;
+  width: 17%;
+  justify-content: space-between;
+}
+
+.user-welcome {
+  font-size: 18px;
+}

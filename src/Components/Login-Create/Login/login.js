@@ -7,7 +7,7 @@ import './login.css';
 import '../account.css';
 
 // Import SVGs
-import logo from '../SpartanSocialLogo.svg';
+import logo from '../../SpartanSocialLogo.svg';
 import rhsGraphic from './rightside-graphic.svg';
 
 export default function Login() {
@@ -50,8 +50,8 @@ export default function Login() {
 
     Axios.post("https://spartansocial-api.herokuapp.com/users/auth", user)
     .then(res => {
+      localStorage.setItem('user', JSON.stringify(res.data.user));
       navigate('/');
-      console.log(res.data);
     })
     .catch(err => {
       console.log(err);

@@ -7,7 +7,7 @@ import '../account.css';
 import './accountOptInfo.css';
 
 // Import SVGs
-import logo from '../SpartanSocialLogo.svg';
+import logo from '../../SpartanSocialLogo.svg';
 import optInfo from './optInfo.svg';
 
 export default function Login() {
