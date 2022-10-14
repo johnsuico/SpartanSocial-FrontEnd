@@ -5,18 +5,14 @@ import { Link } from "react-router-dom";
 import './landing.css';
 
 // Importing Components
-import NavBar from '../NavBar/navBar';
+import Navbar from '../Navbar/navbar';
 
 export default function Landing() {
   return (
-    <div>
-
-      <NavBar />
-
-      <h1>Temp Landing Page</h1>
-      <h3>Navigation</h3>
-      <Link to="/login"> Login Page </Link> <br></br>
-      <Link to="/createAccount"> Create account page </Link>
+    <div className="landing">
+      <div className="landing-container">
+        <Navbar />
+      </div>
     </div>
   )
 }

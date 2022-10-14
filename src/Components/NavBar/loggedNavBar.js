@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Axios from 'axios';
 
 // Importing CSS
-import './navBar.css';
+import './navbar.css';
 
 // Import SVGs
 import Logo from '../SpartanSocialLogo.svg';

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // Importing CSS
-import './navBar.css';
+import './navbar.css';
 
 // Import SVGs
 import Logo from '../SpartanSocialLogo.svg';
