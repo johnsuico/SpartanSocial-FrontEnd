@@ -1,0 +1,10 @@
+.landing {
+  border: 1px solid blue;
+  height: 100vh;
+  background-color: var(--MainBackground);
+}
+
+.landing-content {
+  width: 60%;
+  margin: auto;
+}
