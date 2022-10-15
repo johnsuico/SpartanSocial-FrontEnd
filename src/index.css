@@ -25,4 +25,7 @@
 
   /* Text Colors */
   --GrayCaption: #BBB;
+
+  /* Background color */
+  --MainBackground: RGBA(202, 202, 202, 0.3);
 }
