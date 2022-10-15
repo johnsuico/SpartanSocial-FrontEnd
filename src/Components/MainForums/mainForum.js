@@ -5,12 +5,12 @@ import Axios from 'axios';
 // Importing Components
 import SubforumModule from '../SubforumModule/SubforumModule';
 
-export default function GeneralForum() {
+export default function GeneralForum(props) {
 
   const [subForums, setSubforums] = useState([]);
 
   useEffect(() => {
-    Axios.get(`https://spartansocial-api.herokuapp.com/forums/mainForum/634a20dcbf7456efd0490a1f/subForum`)
+    Axios.get(`https://spartansocial-api.herokuapp.com/forums/mainForum/${props.mainForumID}/subForum`)
     .then(res => {
       setSubforums(res.data);
     })
