@@ -2,18 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // Importing CSS
-import './landing.css';
+import './SubforumModule.css';
 
 // Importing Components
 import Navbar from '../Navbar/navbar';
-import GeneralForum from '../GeneralForum/GeneralForum';
 
-export default function Landing() {
+export default function SubforumPage() {
   return (
     <div className="landing">
       <Navbar />
       <div className="landing-content-container">
-        <GeneralForum />
+        
       </div>
     </div>
   )

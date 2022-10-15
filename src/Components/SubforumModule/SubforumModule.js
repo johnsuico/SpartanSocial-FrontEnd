@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Axios from 'axios';
+import React from "react";
+import {Link} from "react-router-dom";
 
 // Icons
 import {FaListAlt, FaClock} from "react-icons/fa";
@@ -7,40 +7,29 @@ import {FaListAlt, FaClock} from "react-icons/fa";
 // Import CSS
 import './SubforumModule.css';
 
-export default function Subforum({subforumID}) {
-  const [subForum, setSubforum] = useState('');
-  const [forumPostLength, setPostLength] = useState(0);
-  const [subForumDate, setForumDate] = useState();
+export default function Subforum(props) {
 
-  useEffect(() => {
-    Axios.get(`https://spartansocial-api.herokuapp.com/forums/subForum/${subforumID}`)
-    .then(res => {
-      setSubforum(res.data);
-      setPostLength(res.data.forumPosts.length);
-      let date = new Date(res.data.subForumDate);
-      setForumDate(date.toDateString());
-    })
-    .catch(err => {
-      console.log(err);
-    })
-  })
+  let date = new Date(props.subForumDate);
+  const subForumDate = date.toDateString();
 
   return (
-    <div className="subforum-container">
-      <div className="subforum-content">
-        <div className="subforum-title">{subForum.subForumTitle}</div>
-        <div className="subforum-desc">{subForum.subForumDesc}</div>
-        <div className="subforum-info">
-          <div className="info-container">
-            <FaListAlt className="info-icon"/>
-            <div className="subforum-postCount">{forumPostLength}</div>
-          </div>
-          <div className="info-container">
-            <FaClock className="info-icon"/>
-            <div className="subforum-date">{subForumDate}</div>
+    <Link to={`/general/subforum/${props.subForumID}`} className="subforum-link">
+      <div className="subforum-container">
+        <div className="subforum-content">
+          <div className="subforum-title">{props.subForumTitle}</div>
+          <div className="subforum-desc">{props.subForumDesc}</div>
+          <div className="subforum-info">
+            <div className="info-container">
+              <FaListAlt className="info-icon"/>
+              <div className="subforum-postCount">{props.forumPostCount}</div>
+            </div>
+            <div className="info-container">
+              <FaClock className="info-icon"/>
+              <div className="subforum-date">{subForumDate}</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }

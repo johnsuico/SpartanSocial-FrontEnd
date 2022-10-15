@@ -6,11 +6,12 @@ import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import "./App.css";
 
 // Import Page Components
-import Landing from "./Components/Landing/landing";
+import Landing from './Components/Landing/landing';
 import Login from './Components/Login-Create/Login/login';
 import CreateAccount from './Components/Login-Create/CreateAccount/createAccount';
 import CreateAccount2 from './Components/Login-Create/CreateAccount/accountInfo';
 import CreateAccount3 from './Components/Login-Create/CreateAccount/accountOptInfo';
+import SubforumPage from './Components/SubforumModule/SubforumPage';
 
 const router = createBrowserRouter ([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter ([
   {
     path: "/createAccount/:id/cp3",
     element: <CreateAccount3 />
+  },
+  {
+    path: "/general/subforum/:subForumId",
+    element: <SubforumPage />
   }
 ])
 
