@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from "react";
 import Axios from 'axios';
 
+// Importing CSS
+import './GeneralForum.css';
+
 // Importing Components
 import SubforumModule from '../SubforumModule/SubforumModule';
 
