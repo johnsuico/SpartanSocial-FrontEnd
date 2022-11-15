@@ -80,3 +80,9 @@
 .user-welcome {
   margin: 0 5%;
 }
+
+/* Active Styling */
+.active {
+  color: var(--SJSUBlue);
+  border-bottom: 2px solid var(--SJSUBlue);
+}

@@ -7,9 +7,7 @@ import './navbar.css';
 // Import SVGs
 import Logo from '../SpartanSocialLogo.svg';
 
-export default function Landing(props) {
-
-  let active = props.active;
+export default function Landing({active}) {
 
   return (
     <div className="navbar">
@@ -20,8 +18,16 @@ export default function Landing(props) {
           </Link>
         </div>
         <div className="nav-section">
-          <Link to="/" className="nav-link link">Forums</Link>
-          <Link to="/" className="nav-link link">Events</Link>
+          <Link to="/" className={
+            active === 'forums' ?
+            `nav-link link active` :
+            `nav-link link`
+          }>Forums</Link>
+          <Link to="/" className={
+            active === 'events' ?
+            `nav-link link active` :
+            `nav-link link`
+          }>Events</Link>
         </div>
         <div className="nav-section">
           <Link to="/login" className="nav-link link">Log in</Link>
