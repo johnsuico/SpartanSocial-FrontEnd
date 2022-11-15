@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Axios from 'axios';
 
 // Importing CSS
@@ -20,12 +20,13 @@ export default function SubforumPage() {
 
   let {subForumId} = useParams();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     // Get all subforum posts
     Axios.get(`https://spartansocial-api.herokuapp.com/forums/subForum/${subForumId}/post`)
     .then (res => {
       setPosts(res.data);
-      // console.log(res.data[0].forumComments.length)
     })
     .catch (err => {
       console.log(err);
@@ -49,7 +50,7 @@ export default function SubforumPage() {
   }, [])
 
   function createPostPage() {
-    // navigate(`/${parentForumId}/${subForumId}/post/create`);
+    navigate(`/${parentForum._id}/${subForumId}/post/create`);
   }
 
   return (
