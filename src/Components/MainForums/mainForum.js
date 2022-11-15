@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import { Link } from "react-router-dom";
 import Axios from 'axios';
 
 // Importing Components
@@ -27,7 +26,7 @@ export default function GeneralForum(props) {
             subForumTitle   = {sub.subForumTitle}
             subForumDesc    = {sub.subForumDesc}
             forumPostCount  = {sub.forumPosts.length}
-            subForumDate    = {sub.subForumDate}
+            parentForumId   = {props.mainForumID}
             subForumID      = {sub._id}
             key             = {sub._id}
           />
