@@ -29,6 +29,7 @@
   border: none;
   padding: 10px 5px;
   transition: transform 0.5s;
+  background-color: var(--MainBackground);
 }
 
 .forum-category:hover {

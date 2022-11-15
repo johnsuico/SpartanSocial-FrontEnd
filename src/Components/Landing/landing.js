@@ -46,21 +46,21 @@ export default function Landing() {
         <div className="forum-category-container">
           <button className={
             active === 'general' ?
-            'forum-category' + ' ' + 'active' :
+            `forum-category active` :
             'forum-category'
           } onClick={clickGeneral}>
             General
           </button>
           <button className={
             active === 'sjsu' ?
-            'forum-category' + ' ' + 'active' :
+            `forum-category active` :
             'forum-category'
           } onClick={clickSJSU}>
             SJSU Help
           </button>
           <button className={
             active === 'tutor' ?
-            'forum-category' + ' ' + 'active' :
+            `forum-category active`:
             'forum-category'
           } onClick={clickTutor}>
             Academic Help
@@ -73,7 +73,6 @@ export default function Landing() {
 
         {active === 'tutor' ? <GeneralForum mainForumID={tutorID}/> : ''}
 
-        {/* <GeneralForum /> */}
       </div>
     </div>
   )
