@@ -8,6 +8,8 @@
   border-radius: 10px;
   display: flex;
   justify-content: center;
+  border: 1px solid var(--SecLightGray);
+  margin-bottom: 10px;
 }
 
 .post-content {

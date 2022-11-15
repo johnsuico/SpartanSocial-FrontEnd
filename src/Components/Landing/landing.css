@@ -23,6 +23,7 @@
   align-items: center;
   background-color: white;
   border-radius: 10px;
+  border: 1px solid var(--SecLightGray);
   height: 50px;
   margin: 2% 0;
 }
