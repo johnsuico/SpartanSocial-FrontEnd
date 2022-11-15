@@ -18,7 +18,7 @@
 
 .forum-category-container {
   display: flex;
-  width: 40%;
+  width: 768px;
   justify-content: space-between;
   align-items: center;
   background-color: white;
