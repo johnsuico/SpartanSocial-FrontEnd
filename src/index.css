@@ -1,16 +1,6 @@
 /* Google Font "Inter" */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap");
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  overflow: hidden;
-}
-
 /* Colors for the website */
 :root {
   /* Primary Colors */
@@ -27,5 +17,34 @@
   --GrayCaption: #BBB;
 
   /* Background color */
-  --MainBackground: RGBA(202, 202, 202, 0.3);
+  /* --MainBackground: RGBA(202, 202, 202, 0.3); */
+  --MainBackground: #F9F9F9;
+
+  /* Vote Colors */
+  /* Upvote color is using Info colors */
+  --Downvote: #E30E00;
+  --DownvoteBackground: #FF867E;
+
+  /* Button Colors */
+  --BlueOutline: #243A73;
+
+  /* Default Profile Picture Colors */
+  --ProfilePictureBlue: #618DFF;
+
+  /* Category Colors */
+  --QuestionBodyYellow: #FFF9C0;
+  --QuestionOutlineYellow: #BAA700;
+  --InfoBodyGreen: #D7FFC5;
+  --InfoOutlineGreen: #68D037;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+  background-color: var(--MainBackground);
 }
