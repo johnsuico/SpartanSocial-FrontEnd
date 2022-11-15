@@ -7,17 +7,24 @@ import './navbar.css';
 // Import SVGs
 import Logo from '../SpartanSocialLogo.svg';
 
-export default function Landing() {
+export default function Landing(props) {
+
+  let active = props.active;
+
   return (
     <div className="navbar">
       <div className="navbar-container">
-        <div className="logo">
+        <div className="nav-section">
           <Link to="/" className="nav-logo">
             <img src={Logo} alt="Spartan Social Logo" />
           </Link>
         </div>
-        <div className="navbar-quicklinks">
-          <Link to="/login" className="link">Log in</Link>
+        <div className="nav-section">
+          <Link to="/" className="nav-link link">Forums</Link>
+          <Link to="/" className="nav-link link">Events</Link>
+        </div>
+        <div className="nav-section">
+          <Link to="/login" className="nav-link link">Log in</Link>
           <Link to="/createAccount" className="CTA-btn">Sign up</Link>
         </div>
       </div>

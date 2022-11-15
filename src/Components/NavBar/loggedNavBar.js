@@ -32,12 +32,17 @@ export default function Landing({userID}) {
   return (
     <div className="navbar">
       <div className="navbar-container">
-        <div className="logo">
+        <div className="nav-section">
           <Link to="/" className="nav-logo">
-            <img src={Logo} alt="Spartan Social Logo" />
+            <img src={Logo} alt="Spartan Social Logo" className="nav-logo-svg"/>
           </Link>
         </div>
-        <div className="navbar-rightside">
+        <div className="nav-section">
+          <Link to="/" className="nav-link link">Forums</Link>
+          <Link to="/" className="nav-link link">Events</Link>
+          <Link to="/" className="nav-link link">Profile</Link>
+        </div>
+        <div className="nav-section">
           <p className="user-welcome">Welcome {user.firstName} {user.lastName}</p>
           <Link to="/" className="CTA-btn" onClick={logout}>Log out</Link>
         </div>
