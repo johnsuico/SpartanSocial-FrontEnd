@@ -46,7 +46,7 @@
   background-color: white;
   font-size: 15px;
   color: var(--SecDarkGray);
-  border-radius: 10px
+  border-radius: 10px;
 }
 
 .forum-category:hover {
