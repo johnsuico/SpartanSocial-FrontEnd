@@ -12,6 +12,7 @@ import CreateAccount from './Components/Login-Create/CreateAccount/createAccount
 import CreateAccount2 from './Components/Login-Create/CreateAccount/accountInfo';
 import CreateAccount3 from './Components/Login-Create/CreateAccount/accountOptInfo';
 import SubforumPage from './Components/SubforumModule/SubforumPage';
+import Post from './Components/SpecificPost/Post';
 
 const router = createBrowserRouter ([
   {
@@ -35,8 +36,16 @@ const router = createBrowserRouter ([
     element: <CreateAccount3 />
   },
   {
-    path: "/general/subforum/:subForumId",
+    path: "/:parentForumId/:subForumId",
     element: <SubforumPage />
+  },
+  {
+    path: "/:parentForumId/:subForumId/post/create",
+    element: <Landing />
+  },
+  {
+    path: "/:parentForumId/:subForumId/:postId",
+    element: <Post />
   }
 ])
 
