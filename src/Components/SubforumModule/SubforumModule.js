@@ -13,7 +13,7 @@ export default function Subforum(props) {
   const subForumDate = date.toDateString();
 
   return (
-    <Link to={`/general/subforum/${props.subForumID}`} className="subforum-link">
+    <Link to={`/${props.parentForumId}/${props.subForumID}`} className="subforum-link">
       <div className="subforum-container">
         <div className="subforum-content">
           <div className="subforum-title">{props.subForumTitle}</div>
@@ -22,10 +22,6 @@ export default function Subforum(props) {
             <div className="info-container">
               <FaListAlt className="info-icon"/>
               <div className="subforum-postCount">{props.forumPostCount}</div>
-            </div>
-            <div className="info-container">
-              <FaClock className="info-icon"/>
-              <div className="subforum-date">{subForumDate}</div>
             </div>
           </div>
         </div>
