@@ -1,4 +1,4 @@
-import React, {useEffect, useState, forceUpdate} from "react";
+import React, {useEffect, useState} from "react";
 import { Link, useParams } from 'react-router-dom';
 import Axios from 'axios';
 
@@ -18,7 +18,7 @@ export default function PostPage(props) {
   let userInStorage = JSON.parse(localStorage.getItem('user'));
 
   const [author, setAuthor] = useState({});
-  const [userID, setUserID] = useState(userInStorage.user_id);
+  const [userID] = useState(userInStorage.user_id);
 
   // Variables to hold if user has already voted on post
   const [upvote, setUpvote] = useState(false);

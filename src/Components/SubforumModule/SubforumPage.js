@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Axios from 'axios';
 
 // Importing CSS
@@ -18,8 +18,7 @@ export default function SubforumPage() {
   const [parentForum, setParentForum] = useState({});
   const [isLogged, setLogged] = useState(false);
 
-  let {parentForumId, subForumId} = useParams();
-  let navigate = useNavigate();
+  let {subForumId} = useParams();
 
   useEffect(() => {
     // Get all subforum posts
