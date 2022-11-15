@@ -2,35 +2,64 @@
   background-color: white;
 }
 
+.navbar * {
+  background-color: white;
+}
+
 .navbar-container {
   display: flex;
   width: 90%;
-  justify-content: space-between;
   margin: auto;
-  padding: 10px 0;
+  background-color: white;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.logo {
+  flex: 1;
 }
 
 .nav-logo {
   display: flex;
   height: 100%;
   width: 100%;
+  padding: 10px 0;
 }
 
-.navbar-quicklinks {
+.nav-logo img {
+  background-color: white;
+}
+
+.nav-section {
   display: flex;
-  justify-content: space-between;
-  width: 10%;
   align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+.nav-section:nth-child(2) {
+  justify-content: center;
+}
+
+.nav-section:nth-child(3) {
+  justify-content: flex-end;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  margin: 0 5%;
 }
 
 .link {
-  text-decoration: none;
-  color: var(--SecDarkGray);
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .link:hover {
   color: var(--SJSUBlue);
-  border-bottom: 1px solid var(--SJSUBlue);
+  border-bottom: 2px solid var(--SJSUBlue);
 }
 
 .CTA-btn {
@@ -46,14 +75,8 @@
   background-color: var(--SecBlue);
 }
 
-/* Logged In Navbar CSS */
-.navbar-rightside {
-  display: flex;
-  align-items: center;
-  width: 17%;
-  justify-content: space-between;
-}
 
+/* Logged In Navbar CSS */
 .user-welcome {
-  font-size: 18px;
+  margin: 0 5%;
 }
