@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import LoggedNavbar from './loggedNavBar.js';
 import UnloggedNavbar from './unLoggedNavBar.js';
 
-export default function Navbar() {
+export default function Navbar(props) {
 
   let userInStorage = JSON.parse(localStorage.getItem('user'));
 
@@ -19,6 +19,6 @@ export default function Navbar() {
     }
   })
 
-  if (isLogged) return <LoggedNavbar userID={user.user_id}/>
-  else return <UnloggedNavbar active="forums"/>
+  if (isLogged) return <LoggedNavbar userID={user.user_id} active={props.active}/>
+  else return <UnloggedNavbar active={props.active}/>
 }

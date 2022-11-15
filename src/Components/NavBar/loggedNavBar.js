@@ -8,7 +8,7 @@ import './navbar.css';
 // Import SVGs
 import Logo from '../SpartanSocialLogo.svg';
 
-export default function Landing({userID}) {
+export default function Landing({userID, active}) {
 
   const [user, setUser] = useState('');
 
@@ -38,9 +38,21 @@ export default function Landing({userID}) {
           </Link>
         </div>
         <div className="nav-section">
-          <Link to="/" className="nav-link link">Forums</Link>
-          <Link to="/" className="nav-link link">Events</Link>
-          <Link to="/" className="nav-link link">Profile</Link>
+          <Link to="/" className={
+            active === 'forums' ?
+            `nav-link link active` :
+            `nav-link link`
+          }>Forums</Link>
+          <Link to="/" className={
+            active === 'events' ?
+            `nav-link link active` :
+            `nav-link link`
+          }>Events</Link>
+          <Link to="/" className={
+            active === 'profile' ?
+            `nav-link link active` :
+            `nav-link link`
+          }>Profile</Link>
         </div>
         <div className="nav-section">
           <p className="user-welcome">Welcome {user.firstName} {user.lastName}</p>
