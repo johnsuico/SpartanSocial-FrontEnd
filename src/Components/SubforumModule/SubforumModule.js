@@ -2,15 +2,12 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 // Icons
-import {FaListAlt, FaClock} from "react-icons/fa";
+import {FaListAlt} from "react-icons/fa";
 
 // Import CSS
 import './SubforumModule.css';
 
 export default function Subforum(props) {
-
-  let date = new Date(props.subForumDate);
-  const subForumDate = date.toDateString();
 
   return (
     <Link to={`/${props.parentForumId}/${props.subForumID}`} className="subforum-link">
