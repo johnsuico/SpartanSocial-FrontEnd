@@ -41,30 +41,35 @@ export default function Landing() {
 
   return (
     <div className="landing">
-      <Navbar />
+      <Navbar active="forums"/>
       <div className="landing-content-container">
         <div className="forum-category-container">
-          <button className={
-            active === 'general' ?
-            `forum-category active` :
-            'forum-category'
-          } onClick={clickGeneral}>
-            General
-          </button>
-          <button className={
-            active === 'sjsu' ?
-            `forum-category active` :
-            'forum-category'
-          } onClick={clickSJSU}>
-            SJSU Help
-          </button>
-          <button className={
-            active === 'tutor' ?
-            `forum-category active`:
-            'forum-category'
-          } onClick={clickTutor}>
-            Academic Help
-          </button>
+          <div className="category-caption">
+            <p>Categories</p>
+          </div>
+          <div className="category-selectors">
+            <button className={
+              active === 'general' ?
+              `forum-category active-cat` :
+              'forum-category'
+            } onClick={clickGeneral}>
+              General
+            </button>
+            <button className={
+              active === 'sjsu' ?
+              `forum-category active-cat` :
+              'forum-category'
+            } onClick={clickSJSU}>
+              SJSU Help
+            </button>
+            <button className={
+              active === 'tutor' ?
+              `forum-category active-cat`:
+              'forum-category'
+            } onClick={clickTutor}>
+              Academic Help
+            </button>
+          </div>
         </div>
         
         {active === 'general' ? <GeneralForum mainForumID={generalID}/> : ''}
