@@ -79,7 +79,7 @@ export default function SubforumPage() {
 
         <div className="postModule-container">
           {
-            posts.map(post => 
+            posts.slice(0).reverse().map(post => 
               <PostModule
                 postAuthor        = {post.forumPostAuthor}
                 postBody          = {post.forumPostBody}
