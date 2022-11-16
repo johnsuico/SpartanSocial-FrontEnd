@@ -55,26 +55,26 @@
   height: 100%;
   display: flex;
   align-items: center;
+  transition: all 0.1s ease-in-out;
+  border-bottom: 2px solid transparent;
 }
 
-.link:hover {
+.link:hover, .CTA-btn:hover{
   color: var(--SJSUBlue);
   border-bottom: 2px solid var(--SJSUBlue);
 }
 
 .CTA-btn {
-  background-color: var(--SJSUBlue);
   padding: 10px;
   border: none;
-  border-radius: 10px;
-  color: white;
+  color: black;
   text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: all 0.1s ease-in-out;
+  border-bottom: 2px solid transparent;
 }
-
-.CTA-btn:hover {
-  background-color: var(--SecBlue);
-}
-
 
 /* Logged In Navbar CSS */
 .user-welcome {
