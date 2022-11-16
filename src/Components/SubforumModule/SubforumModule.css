@@ -15,7 +15,7 @@
 }
 
 .subforum-container:hover {
-  transform: scale(1.01);
+  border: 1px solid var(--SecDarkGray);
 }
 
 .subforum-content {
