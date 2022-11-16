@@ -51,13 +51,13 @@ export default function PostPage(props) {
 
       Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
         .then (res => {
-          if (res.data.upvotedPosts.includes(props.postID)) {
+          if (res.data[0].upvotedPosts.includes(props.postID)) {
             setUpvote(true);
           } else {
             setUpvote(false);
           }
 
-          if (res.data.downvotedPosts.includes(props.postID)) {
+          if (res.data[0].downvotedPosts.includes(props.postID)) {
             setDownvote(true);
           } else {
             setDownvote(false);
