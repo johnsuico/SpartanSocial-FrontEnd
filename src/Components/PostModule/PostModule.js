@@ -34,6 +34,7 @@ export default function PostPage(props) {
   let {parentForumId, subForumId} = useParams();
 
   useEffect(() => {
+
     // Grab author details
     Axios.get(`https://spartansocial-api.herokuapp.com/users/${props.postAuthor}`)
     .then (res => {
