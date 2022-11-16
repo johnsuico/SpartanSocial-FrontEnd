@@ -17,6 +17,7 @@ export default function SubforumPage() {
   const [posts, setPosts] = useState([]);
   const [parentForum, setParentForum] = useState({});
   const [isLogged, setLogged] = useState(false);
+  const [isPostEmpty, setPostEmpty] = useState(false);
 
   let {subForumId} = useParams();
 
@@ -26,7 +27,12 @@ export default function SubforumPage() {
     // Get all subforum posts
     Axios.get(`https://spartansocial-api.herokuapp.com/forums/subForum/${subForumId}/post`)
     .then (res => {
-      setPosts(res.data);
+      if (res.data.length === 0) {
+        setPostEmpty(true);
+      } else {
+        setPosts(res.data);
+        setPostEmpty(false);
+      }
     })
     .catch (err => {
       console.log(err);
@@ -72,30 +78,36 @@ export default function SubforumPage() {
                 <p className="createPost-button-caption">Create Post</p>
               </div>
             </div>
-          </div> :
-        ""
-        
+          </div> 
+          :
+            null
         }
-
-        <div className="postModule-container">
-          {
-            posts.slice(0).reverse().map(post => 
-              <PostModule
-                postAuthor        = {post.forumPostAuthor}
-                postBody          = {post.forumPostBody}
-                postCategory      = {post.forumPostCategory}
-                postDate          = {post.forumPostDate}
-                postTitle         = {post.forumPostTitle}
-                postUpvote        = {post.postUpVotes}
-                postDownvote      = {post.postDownVotes}
-                postCommentLength = {post.forumComments.length}
-                postID            = {post._id}
-                key               = {post._id}
-              />
-            )
-          }
-        </div>
-
+        
+        {/* Show different things if the subforum has no posts */}
+        {isPostEmpty ? 
+          <div className="noPost-container">
+            <h2>No posts yet, be the first one to post.</h2>
+          </div>
+        :
+          <div className="postModule-container">
+            {
+              posts.slice(0).reverse().map(post => 
+                <PostModule
+                  postAuthor        = {post.forumPostAuthor}
+                  postBody          = {post.forumPostBody}
+                  postCategory      = {post.forumPostCategory}
+                  postDate          = {post.forumPostDate}
+                  postTitle         = {post.forumPostTitle}
+                  postUpvote        = {post.postUpVotes}
+                  postDownvote      = {post.postDownVotes}
+                  postCommentLength = {post.forumComments.length}
+                  postID            = {post._id}
+                  key               = {post._id}
+                />
+              )
+            }
+          </div>
+        }
         
       </div>
 
