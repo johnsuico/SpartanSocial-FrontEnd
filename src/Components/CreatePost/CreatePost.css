@@ -2,11 +2,20 @@
   background-color: white;
   height: 100%;
   width: 40%;
-  margin: 5% auto;}
+  margin: 5% auto;
+  border: 1px solid var(--SecLightGray);
+  border-radius: 10px;
+}
 
 .createPost-form {
   width: 90%;
   margin: 20px auto;
+  padding: 20px 0;
+}
+
+.post-form-title {
+  margin-bottom: 40px;
+  font-weight: 600;
 }
 
 .post-form-field {
@@ -17,13 +26,13 @@
 
 .post-form-label {
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .post-form-input {
   height: 40px;
   border-radius: 10px;
-  border: 1px solid var(--SecDarkGray);
+  border: 1px solid var(--SecLightGray);
   padding-left: 10px;
   font-size: 16px;
 }
@@ -54,6 +63,8 @@
 .post-form-body-field {
   padding: 10px;
   border-radius: 10px;
+  resize: none;
+  border: 1px solid var(--SecLightGray);
 }
 
 .createPost-submit-container {
