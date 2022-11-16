@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 
 // Importing CSS
@@ -18,7 +18,10 @@ export default function PostPage(props) {
   let userInStorage = JSON.parse(localStorage.getItem('user'));
 
   const [author, setAuthor] = useState({});
-  const [userID] = useState(userInStorage.user_id);
+  const [userID, setUserID] = useState('');
+  const [isLogged, setLogged] = useState(false);
+
+  const navigate = useNavigate();
 
   // Variables to hold if user has already voted on post
   const [upvote, setUpvote] = useState(false);
@@ -42,6 +45,10 @@ export default function PostPage(props) {
 
     // Grab user info if logged in
     if(localStorage.getItem('user')) {
+
+      setUserID(userInStorage.user_id);
+      setLogged(true);
+
       Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
         .then (res => {
           if (res.data.upvotedPosts.includes(props.postID)) {
@@ -64,27 +71,43 @@ export default function PostPage(props) {
   const postDate = date.toDateString();
 
   function addUpvote() {
-    Axios.post(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/upvote`, {userID});
-    setUpvote(!upvote);
-    setUpcount(upCount+1);
+    if (isLogged) {
+      Axios.post(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/upvote`, {userID});
+      setUpvote(!upvote);
+      setUpcount(upCount+1);
+    } else {
+      navigate(`/login`);
+    }
   }
 
   function removeUpvote() {
-    Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/upvote`, {data: {userID}})
-    setUpvote(!upvote);
-    setUpcount(upCount-1);
+    if (isLogged) {
+      Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/upvote`, {data: {userID}})
+      setUpvote(!upvote);
+      setUpcount(upCount-1);
+    } else {
+      navigate(`/login`);
+    }
   }
 
   function addDownvote() {
-    Axios.post(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/downvote`, {userID});
-    setDownvote(true);
-    setDowncount(downCount-1);
+    if (isLogged) {
+      Axios.post(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/downvote`, {userID});
+      setDownvote(true);
+      setDowncount(downCount-1);
+    } else {
+      navigate(`/login`);
+    }
   }
 
   function removeDownvote() {
-    Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/downvote`, {data: {userID}})
-    setDownvote(false);
-    setDowncount(downCount+1);
+    if (isLogged) {
+      Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/downvote`, {data: {userID}})
+      setDownvote(false);
+      setDowncount(downCount+1);
+    } else {
+      navigate(`/login`);
+    }
   }
 
   function upvoteClick() {
