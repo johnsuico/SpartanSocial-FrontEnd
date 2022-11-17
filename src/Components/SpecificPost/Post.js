@@ -20,7 +20,7 @@ export default function SpecificPost() {
   const [newComment, setNewComment] = useState('');
 
   const userInStorage = JSON.parse(localStorage.getItem('user'));
-  const [userID] = useState(userInStorage.user_id);
+  const [userID, setUserID] = useState('');
 
   useEffect(() => {
     // Get post details
@@ -40,6 +40,10 @@ export default function SpecificPost() {
       .catch (err => {
         console.log(err);
       })
+
+      if (userInStorage) {
+        setUserID(userInStorage.user_id);
+      }
   })
   
   function handleSubmit(e) {
