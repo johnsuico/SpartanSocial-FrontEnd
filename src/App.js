@@ -15,6 +15,7 @@ import SubforumPage from './Components/SubforumModule/SubforumPage';
 import Post from './Components/SpecificPost/Post';
 import CreatePost from './Components/CreatePost/CreatePost';
 import EventsMainPage from './Components/EventsPage/EventsMainPage';
+import CreateEventPage from './Components/EventsPage/CreateEventPage/CreateEventPage';
 
 const router = createBrowserRouter ([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter ([
   {
     path: "/events",
     element: <EventsMainPage />
+  },
+  {
+    path: "/events/create",
+    element: <CreateEventPage />
   }
 ])
 
