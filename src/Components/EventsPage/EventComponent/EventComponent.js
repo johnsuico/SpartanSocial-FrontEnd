@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import Axios from 'axios';
 
 // Import CSS
@@ -17,14 +17,46 @@ export default function EventComponent(props) {
 
   const [eventDescLength] = useState(props.eventDesc.length);
 
+  const [author, setAuthor] = useState({});
+
   useEffect(() => {
     if(localStorage.getItem('user')) {
       setLogged(true);
       const userInStorage = JSON.parse(localStorage.getItem('user'));
       setUserID(userInStorage.user_id);
+
+      Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
+        .then (res => {
+
+          if (res.data.goingEvents === undefined) {
+            // Wait and do nothing
+          } else {
+            if (res.data.goingEvents.includes(props.eventID)) {
+              setGoing(true);
+            } else {
+              setGoing(false);
+            }
+
+            if (res.data.notGoingEvents.includes(props.eventID)) {
+              setNotGoing(true);
+            } else {
+              setNotGoing(false);
+            }
+          }
+        })
     } else {
       setLogged(false);
     }
+
+    Axios.get(`https://spartansocial-api.herokuapp.com/users/${props.eventCreator}`)
+      .then(res => {
+        setAuthor(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
+
   })
 
   function addGoing() {
@@ -84,14 +116,20 @@ export default function EventComponent(props) {
   return (
     <div className="eventComponent">
       <div className="eventComponent-content-container">
-        <h2 className="event-title">{props.eventTitle}</h2>
+
+        <Link to={`/events/`+props.eventID+'/'+props.eventCreator} className="specificEvent-link">
+          <h2 className="event-title">{props.eventTitle}</h2>
+          
+          {eventDescLength >= 200 ?
+            <p className="event-desc">{props.eventDesc.substring(0, 200)}...</p>
+          :
+            <p className="event-desc">{props.eventDesc}</p>
+          }
         
-        {eventDescLength >= 200 ?
-          <p className="event-desc">{props.eventDesc.substring(0, 200)}...</p>
-        :
-          <p className="event-desc">{props.eventDesc}</p>
-        }
-      
+          <div className="eventAuthor-container">
+            <p className="eventAuthor-caption">Event posted by: {author.firstName} {author.lastName}</p>
+          </div>
+        </Link>
 
         <div className="eventComponent-attendance">
           <button className={"attendance-btn eventGoing " + (going ? `eventGoing-active` : null )} onClick={handleClick} value="going">I'm going!</button>
@@ -99,5 +137,6 @@ export default function EventComponent(props) {
         </div>
       </div>
     </div>
+
   )
 } 
