@@ -1,0 +1,58 @@
+.specific-post-page {
+  width: 768px;
+  margin: 5% auto;
+}
+
+.commentSection-title {
+  font-weight: 400;
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.post-comment-form-container {
+  border: 1px solid var(--SecLightGray);
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.createComment-form {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.createComment-field {
+  padding: 10px;
+  resize: none;
+  border-color: var(--SecLightGray);
+  border-radius: 7px;
+  margin: 10px 0;
+}
+
+.createComment-submit-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.createComment-submit-btn {
+  color: white;
+  border: 1px solid var(--BlueOutline);
+  border-radius: 5px;
+  background-color: var(--SJSUBlue);
+  padding: 5px 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.createComment-submit-btn:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+.comment-footer {
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,42 @@
+.postComment-container {
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid var(--SecLightGray);
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.postComment-content-container {
+  width: 90%;
+  margin: 20px 0;
+}
+
+.comment-header-container {
+  display: flex;
+}
+
+.default-profile-pic-small {
+  border: 1px solid var(--BlueOutline);
+  background-color: var(--ProfilePictureBlue);
+  border-radius: 10px;
+  height: 48px;
+  width: 48px;
+}
+
+.commentAuthor {
+  font-size: 14px;
+}
+
+.commentDate {
+  font-size: 12px;
+  color: var(--SecDarkGray);
+}
+
+.comment-body-container {
+  margin: 10px 0;
+}
+
+.comment-body-content {
+  font-size: 14px;
+}
