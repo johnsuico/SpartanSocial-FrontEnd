@@ -23,7 +23,7 @@ export default function Landing({active}) {
             `nav-link link active` :
             `nav-link link`
           }>Forums</Link>
-          <Link to="/" className={
+          <Link to="/events" className={
             active === 'events' ?
             `nav-link link active` :
             `nav-link link`

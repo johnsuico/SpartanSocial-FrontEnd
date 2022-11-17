@@ -14,6 +14,7 @@ import CreateAccount3 from './Components/Login-Create/CreateAccount/accountOptIn
 import SubforumPage from './Components/SubforumModule/SubforumPage';
 import Post from './Components/SpecificPost/Post';
 import CreatePost from './Components/CreatePost/CreatePost';
+import EventsMainPage from './Components/EventsPage/EventsMainPage';
 
 const router = createBrowserRouter ([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter ([
   {
     path: "/:parentForumId/:subForumId/:postId",
     element: <Post />
+  },
+  {
+    path: "/events",
+    element: <EventsMainPage />
   }
 ])
 
