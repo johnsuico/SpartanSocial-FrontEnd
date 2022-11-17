@@ -12,13 +12,21 @@ export default function GeneralForum(props) {
   const [subForums, setSubforums] = useState([]);
 
   useEffect(() => {
-    Axios.get(`https://spartansocial-api.herokuapp.com/forums/mainForum/${props.mainForumID}/subForum`)
-    .then(res => {
-      setSubforums(res.data);
-    })
-    .catch(err => {
-      console.log(err);
-    })
+
+    // Check if props.mainForumID has loaded the value
+    // If not, do nothing and wait
+    // Once loaded, display the general forums. This just gets rid of the console error.
+    if (props.mainForumID === undefined || props.mainForumID === '') {
+      // Do nothing, wait for it to load
+    } else {
+      Axios.get(`https://spartansocial-api.herokuapp.com/forums/mainForum/${props.mainForumID}/subForum`)
+      .then(res => {
+        setSubforums(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    }
   })
 
   return (
