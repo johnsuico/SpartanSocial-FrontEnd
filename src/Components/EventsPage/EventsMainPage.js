@@ -7,6 +7,7 @@ import './EventsMainPage.css';
 
 // Import components
 import Navbar from '../Navbar/navbar';
+import EventComponent from './EventComponent/EventComponent';
 
 // Importing Icons
 import {FaPlus} from 'react-icons/fa';
@@ -25,6 +26,17 @@ export default function EventsMainPage() {
     } else {
       setLogged(false);
     }
+
+    Axios.get(`https://spartansocial-api.herokuapp.com/events`)
+      .then(res => {
+        setEvents(res.data);
+        if (res.data.length !== 0) {
+          setEmpty(false);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
   })
 
   function createEventPage() {
@@ -67,7 +79,20 @@ export default function EventsMainPage() {
             <h2>No events yet, be the first one to post an event.</h2>
           </div>
           :
-          null
+          <div className="eventComponent-container">
+            {
+              events.map(event => 
+                <EventComponent 
+                  eventTitle    = {event.eventTitle}
+                  eventDesc     = {event.eventDesc}
+                  eventDate     = {event.eventDate}
+                  eventCreator  = {event.eventCreator}
+                  eventID       = {event._id}
+                  key           = {event._id}
+                />
+              )
+            }
+          </div>
         }
 
       </div>

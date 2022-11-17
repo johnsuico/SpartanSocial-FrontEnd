@@ -73,7 +73,7 @@ export default function CreateEventPage() {
 
             <div className="event-form-field">
               <label className="event-form-label">Event Date</label>
-              <input type="date" name="eventDate" className="event-form-input event-date" onChange={handleChange} value={eventDate}/>
+              <input type="date" name="eventDate" className="event-form-input event-date" onChange={handleChange} value={eventDate} required/>
             </div>
           </div>
 
