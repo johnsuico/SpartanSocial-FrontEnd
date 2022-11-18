@@ -19,7 +19,7 @@
 }
 
 .specificEvent-author {
-  color: var(--SecLightGray);
+  color: var(--SecDarkGray);
   font-size: 14px;
   margin-top: 5px;
 }
