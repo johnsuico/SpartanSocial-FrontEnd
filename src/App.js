@@ -17,6 +17,7 @@ import CreatePost from './Components/CreatePost/CreatePost';
 import EventsMainPage from './Components/EventsPage/EventsMainPage';
 import CreateEventPage from './Components/EventsPage/CreateEventPage/CreateEventPage';
 import SpecificEvent from './Components/EventsPage/SpecificEventPage/SpecificEventPage';
+import ProfilePage from './Components/ProfilePage/ProfilePage';
 
 const router = createBrowserRouter ([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter ([
   {
     path: "/events/:eventID/:eventCreatorID",
     element: <SpecificEvent />
+  },
+  {
+    path: "/profilepage/:userID",
+    element: <ProfilePage />
   }
 ])
 

@@ -48,7 +48,7 @@ export default function Landing({userID, active}) {
             `nav-link link active` :
             `nav-link link`
           }>Events</Link>
-          <Link to="/" className={
+          <Link to={"/profilepage/"+user._id} className={
             active === 'profile' ?
             `nav-link link active` :
             `nav-link link`
