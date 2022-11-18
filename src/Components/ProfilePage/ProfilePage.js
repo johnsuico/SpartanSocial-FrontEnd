@@ -8,6 +8,8 @@ import './ProfilePage.css';
 // Import components
 import Navbar from '../Navbar/navbar';
 import PreviousPosts from './PreviousPosts/PreviousPosts';
+import PreviousComments from './PreviousComments/PreviousComments';
+import PreviousEvents from './PreviousEvents/PreviousEvents';
 
 // Import icons
 import {FaCheckCircle} from 'react-icons/fa';
@@ -110,6 +112,18 @@ export default function ProfilePage() {
             <div className="previous-acitivity-module">
               {active === 'posts' ?
                 <PreviousPosts userID={userID} />
+              :
+                null
+              }
+
+              {active === 'comments' ?
+                <PreviousComments userID={userID} />
+              :
+                null
+              }
+
+              {active === 'events' ?
+                <PreviousEvents userID={userID} />
               :
                 null
               }
