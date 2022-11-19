@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 import Axios from 'axios';
 
 // Importing CSS
@@ -22,7 +22,18 @@ export default function SpecificPost() {
   const userInStorage = JSON.parse(localStorage.getItem('user'));
   const [userID, setUserID] = useState('');
 
+  const [isLogged, setLogged] = useState(false);
+
+  const navigate = useNavigate();
+
   useEffect(() => {
+
+    if (localStorage.getItem('user')) {
+      setLogged(true);
+    } else {
+      setLogged(false);
+    }
+
     // Get post details
     Axios.get(`https://spartansocial-api.herokuapp.com/forums/posts/${postId}`)
       .then (res => {
@@ -44,19 +55,24 @@ export default function SpecificPost() {
       if (userInStorage) {
         setUserID(userInStorage.user_id);
       }
-  }, [])
+  }, [commentArray])
   
   function handleSubmit(e) {
     e.preventDefault();
 
-    const sendComment = {
-      commentAuthor: userID,
-      commentBody: newComment
-    };
+    if (isLogged) {
+      const sendComment = {
+        commentAuthor: userID,
+        commentBody: newComment
+      };
 
-    Axios.post(`https://spartansocial-api.herokuapp.com/comments/${postId}`, sendComment)
+      Axios.post(`https://spartansocial-api.herokuapp.com/comments/${postId}`, sendComment)
       .then()
       .catch(err => console.log(err));
+
+    } else {
+      navigate(`/login`);
+    }
 
   }
 

@@ -27,7 +27,7 @@ export default function GeneralForum(props) {
         console.log(err);
       })
     }
-  }, [])
+  }, [props.mainForumID])
 
   return (
     <div className="subforums">

@@ -56,7 +56,11 @@ export default function SubforumPage() {
   }, [])
 
   function createPostPage() {
-    navigate(`/${parentForum._id}/${subForumId}/post/create`);
+    if (isLogged) {
+      navigate(`/${parentForum._id}/${subForumId}/post/create`);
+    } else {
+      navigate(`/login`);
+    }
   }
 
   return (
@@ -68,20 +72,18 @@ export default function SubforumPage() {
           <p className="subForumDesc">{parentForum.subForumDesc}</p>
         </div>
 
-        {/* Only show this area if user is logged in */}
-        {isLogged ? 
-          <div className="createPost">
-            <div className="createPost-container">
-              <p className="createPost-caption">Join the conversation</p>
-              <div className="createPost-button" onClick={createPostPage}>
-                <FaPlus className="createPost-plus"/>
-                <p className="createPost-button-caption">Create Post</p>
-              </div>
+        {/* Create a post */}
+        {/* If user is logged in, take them to post create form */}
+        {/* If user is NOT logged in, take them to login page */}
+        <div className="createPost">
+          <div className="createPost-container">
+            <p className="createPost-caption">Join the conversation</p>
+            <div className="createPost-button" onClick={createPostPage}>
+              <FaPlus className="createPost-plus"/>
+              <p className="createPost-button-caption">Create Post</p>
             </div>
-          </div> 
-          :
-            null
-        }
+          </div>
+        </div> 
         
         {/* Show different things if the subforum has no posts */}
         {isPostEmpty ? 
