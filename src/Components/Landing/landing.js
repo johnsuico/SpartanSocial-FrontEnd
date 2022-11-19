@@ -5,7 +5,7 @@ import Axios from 'axios';
 import './landing.css';
 
 // Importing Components
-import Navbar from '../Navbar/navbar';
+import Navbar from '../navbar/navbar';
 import GeneralForum from '../MainForums/mainForum';
 
 export default function Landing() {

@@ -9,7 +9,7 @@ import './SubforumModule.css';
 import {FaPlus} from 'react-icons/fa';
 
 // Importing Components
-import Navbar from '../Navbar/navbar';
+import Navbar from '../navbar/navbar';
 import PostModule from '../PostModule/PostModule';
 
 export default function SubforumPage() {

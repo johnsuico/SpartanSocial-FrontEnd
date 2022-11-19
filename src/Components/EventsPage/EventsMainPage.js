@@ -6,7 +6,7 @@ import Axios from 'axios';
 import './EventsMainPage.css';
 
 // Import components
-import Navbar from '../Navbar/navbar';
+import Navbar from '../navbar/navbar';
 import EventComponent from './EventComponent/EventComponent';
 
 // Importing Icons

@@ -6,7 +6,7 @@ import Axios from 'axios';
 import './CreatePost.css';
 
 // Importing Navbar
-import Navbar from '../Navbar/navbar';
+import Navbar from '../navbar/navbar';
 
 // Importing category buttons
 import Category from '../PostCategories/Category';
