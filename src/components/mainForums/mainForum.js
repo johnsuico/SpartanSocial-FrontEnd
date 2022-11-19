@@ -5,7 +5,7 @@ import Axios from 'axios';
 import './GeneralForum.css';
 
 // Importing Components
-import SubforumModule from '../SubforumModule/SubforumModule';
+import SubforumModule from '../subforumModule/SubforumModule';
 
 export default function GeneralForum(props) {
 
