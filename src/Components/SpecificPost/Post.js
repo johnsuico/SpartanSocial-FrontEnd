@@ -60,6 +60,8 @@ export default function SpecificPost() {
   function handleSubmit(e) {
     e.preventDefault();
 
+    console.log('Sending comment');
+
     if (isLogged) {
       const sendComment = {
         commentAuthor: userID,
