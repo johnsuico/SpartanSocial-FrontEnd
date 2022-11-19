@@ -10,7 +10,7 @@ import {FaPlus} from 'react-icons/fa';
 
 // Importing Components
 import Navbar from '../navbar/navbar';
-import PostModule from '../PostModule/PostModule';
+import PostModule from '../postModule/PostModule';
 
 export default function SubforumPage() {
 

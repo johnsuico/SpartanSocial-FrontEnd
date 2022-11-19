@@ -7,7 +7,7 @@ import './Post.css';
 
 // Importing Components
 import Navbar from '../navbar/navbar';
-import PostModule from '../PostModule/PostModule';
+import PostModule from '../postModule/PostModule';
 import PostComment from './PostComments/PostComment';
 
 export default function SpecificPost() {

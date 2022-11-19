@@ -9,7 +9,7 @@ import './CreatePost.css';
 import Navbar from '../navbar/navbar';
 
 // Importing category buttons
-import Category from '../PostCategories/Category';
+import Category from '../postCategories/Category';
 
 export default function CreatePost() {
 

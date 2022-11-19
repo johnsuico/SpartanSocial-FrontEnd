@@ -10,7 +10,7 @@ import { IoChatbubbleSharp } from "react-icons/io5";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
 // Importing Category Components
-import Category from '../PostCategories/Category';
+import Category from '../postCategories/Category';
 
 export default function PostPage(props) {
 

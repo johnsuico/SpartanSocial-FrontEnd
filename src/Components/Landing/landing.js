@@ -6,7 +6,7 @@ import './landing.css';
 
 // Importing Components
 import Navbar from '../navbar/navbar';
-import GeneralForum from '../MainForums/mainForum';
+import GeneralForum from '../mainForums/mainForum';
 
 export default function Landing() {
 
