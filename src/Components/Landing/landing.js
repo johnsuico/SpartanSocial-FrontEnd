@@ -25,7 +25,7 @@ export default function Landing() {
     .catch (err => {
       console.log(err);
     })
-  })
+  }, [])
 
   function clickGeneral() {
     setActive('general');

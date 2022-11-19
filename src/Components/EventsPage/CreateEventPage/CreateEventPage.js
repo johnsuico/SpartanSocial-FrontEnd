@@ -22,7 +22,7 @@ export default function CreateEventPage() {
       const userInStorage = JSON.parse(localStorage.getItem('user'));
       setEventCreator(userInStorage.user_id)
     } 
-  })
+  }, [])
 
   function handleChange(e) {
     const {name, value} = e.target;

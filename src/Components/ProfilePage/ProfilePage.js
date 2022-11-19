@@ -33,7 +33,7 @@ export default function ProfilePage() {
       .catch (err => {
         console.log(err);
       })
-  })
+  }, [])
 
   const newDate = new Date(user.gradDate);
   const gradDate = newDate.getUTCFullYear();

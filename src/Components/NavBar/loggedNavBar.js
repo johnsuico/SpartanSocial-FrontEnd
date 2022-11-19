@@ -27,7 +27,7 @@ export default function Landing({userID, active}) {
     .catch(err => {
       console.log(err);
     })
-  })
+  }, [])
 
   return (
     <div className="navbar">

@@ -67,7 +67,7 @@ export default function SpecificEvent() {
       .catch (err => {
         console.log(err);
       })
-  })
+  }, [])
 
   function addGoing() {
     Axios.post(`https://spartansocial-api.herokuapp.com/events/${eventID}/going`, {userID});

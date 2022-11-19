@@ -20,7 +20,7 @@ export default function PreviousEvents(props) {
       .catch (err => {
         console.log(err);
       })
-  })
+  }, [])
 
   return (
     <div className="previousPosts-container">

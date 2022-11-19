@@ -44,7 +44,7 @@ export default function SpecificPost() {
       if (userInStorage) {
         setUserID(userInStorage.user_id);
       }
-  })
+  }, [])
   
   function handleSubmit(e) {
     e.preventDefault();

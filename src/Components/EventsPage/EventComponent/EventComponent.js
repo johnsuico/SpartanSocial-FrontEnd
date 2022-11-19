@@ -57,7 +57,7 @@ export default function EventComponent(props) {
       })
 
 
-  })
+  }, [])
 
   function addGoing() {
     Axios.post(`https://spartansocial-api.herokuapp.com/events/${props.eventID}/going`, {userID});

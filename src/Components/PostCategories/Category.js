@@ -4,11 +4,6 @@ import React from 'react';
 import './Category.css';
 
 export default function Category(props) {
-  // return (
-  //   <div className="Cat-container">
-  //     <p className="Cat-body">{props.category}</p>
-  //   </div>
-  // )
 
   if (props.category === "Question") {
     return (

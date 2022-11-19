@@ -61,7 +61,7 @@ export default function PostComment(props) {
           })
           .catch(err => console.log(err));
       }
-  })
+  }, [])
 
   function addCommentUpvote() {
     if (isLogged) {

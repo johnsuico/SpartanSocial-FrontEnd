@@ -37,7 +37,7 @@ export default function EventsMainPage() {
       .catch(err => {
         console.log(err);
       })
-  })
+  }, [])
 
   function createEventPage() {
     if (isLogged) {

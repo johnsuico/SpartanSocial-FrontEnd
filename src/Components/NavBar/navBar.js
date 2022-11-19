@@ -17,7 +17,7 @@ export default function Navbar(props) {
       setLogged(false);
       setUser('');
     }
-  })
+  }, [])
 
   if (isLogged) return <LoggedNavbar userID={user.user_id} active={props.active}/>
   else return <UnloggedNavbar active={props.active}/>
