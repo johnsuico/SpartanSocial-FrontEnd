@@ -1,0 +1,11 @@
+.last-account-form-field {
+  height: 140px;
+}
+
+.confirm-pass-wrong {
+  border: 1px solid red;
+}
+
+.password-no-match {
+  color: red;
+}

@@ -1,0 +1,29 @@
+.previousEvent-container {
+  width: 100%;
+  border: 1px solid var(--SecLightGray);
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+}
+
+.previousEvent-container:hover {
+  border-color: var(--SecDarkGray);
+}
+
+.previousEvent-link {
+  text-decoration: none;
+  color: black;
+}
+
+.previousEvent {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.previousEvent-header {
+  margin-bottom: 20px;
+}
+
+.previousEvent-title {
+  font-weight: 600;
+  font-size: 20px;
+}

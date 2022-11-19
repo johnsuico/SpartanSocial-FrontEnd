@@ -1,0 +1,123 @@
+.post-link {
+  text-decoration: none;
+  color: black;
+}
+
+.post-container {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid var(--SecLightGray);
+  margin-bottom: 10px;
+  transition: all 0.5s ease-in-out;
+}
+
+.post-container:hover {
+  border: 1px solid var(--SecDarkGray);
+}
+
+.post-content {
+  width: 90%;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.postTitle {
+  margin-top: 3%;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.postHeader-info-container {
+  margin: 3% 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.postAuthor-container {
+  display: flex;
+}
+
+.author-date-container {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.postAuthor {
+  font-weight: 400;
+}
+
+.postDate {
+  color: var(--SecDarkGray);
+  font-size: 12px;
+}
+
+.default-profile-pic {
+  height: 64px;
+  width: 64px;
+  background-color: var(--ProfilePictureBlue);
+  border: 1px solid var(--BlueOutline);
+  border-radius: 10px;
+}
+
+.postBody {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.postFooter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.commentCounter-container {
+  display: flex;
+  color: var(--GrayCaption);
+}
+
+.comment-counter {
+  margin-left: 10px;
+}
+
+.voteCounter-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vote-container {
+  display: flex;
+  margin: 0 10px;
+  padding: 2px 7px;
+  color: var(--GrayCaption);
+  transition: all 0.5s ease-in-out;
+}
+
+.vote-container:hover {
+  cursor: pointer;
+}
+
+.upvote:hover {
+  color: var(--InfoOutlineGreen);
+}
+
+.upvote-active {
+  color: var(--InfoOutlineGreen);
+}
+
+.downvote:hover {
+  color: var(--Downvote);
+}
+
+.downvote-active {
+  color: var(--Downvote);
+}
+
+.vote-count {
+  margin-left: 5px;
+}

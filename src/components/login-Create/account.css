@@ -1,0 +1,116 @@
+.left-side-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.half-container {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+}
+
+.left-content-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-logo {
+  width: 80%;
+  margin: 5% auto;
+  height: 50px;
+}
+
+.account-form {
+  width: 50%;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.account-header {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.account-header-caption {
+  padding-top: 3%;
+  color: var(--GrayCaption);
+  padding-bottom: 5%;
+}
+
+.account-form-field {
+  display: flex;
+  flex-direction: column;
+  padding: 5% 0;
+}
+
+.form-label {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.account-input-field {
+  width: 100%;
+  outline: none;
+  padding-left: 14px;
+  font-size: 14px;
+  height: 48px;
+  border: 1px solid var(--GrayCaption);
+  border-radius: 10px;
+}
+
+.account-input-field::placeholder {
+  color: var(--GrayCaption);
+}
+
+.account-link {
+  color: var(--SJSUBlue);
+  text-decoration: none;
+}
+
+.account-link:visited {
+  color: var(--SJSUBlue);
+}
+
+.account-link:hover {
+  text-decoration: underline;
+}
+
+.submit-btn {
+  border: none;
+  width: 100%;
+  height: 48px;
+  background-color: var(--SJSUBlue);
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  margin: 5% 0;
+}
+
+.account-extra-container {
+  display: flex;
+  justify-content: center;
+}
+
+.account-extra-caption {
+  color: var(--GrayCaption);
+  padding-right: 5px;
+}
+
+/* Right hand side CSS */
+.right-login-container {
+  background: linear-gradient(180deg, var(--SJSUBlue), rgba(0, 85, 162, 0.90));
+}
+
+.right-content-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+
+.right-content {
+  margin: auto;
+}

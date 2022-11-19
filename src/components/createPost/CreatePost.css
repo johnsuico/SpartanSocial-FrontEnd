@@ -1,0 +1,88 @@
+.createPost-container-form {
+  background-color: white;
+  height: 100%;
+  width: 40%;
+  margin: 5% auto;
+  border: 1px solid var(--SecLightGray);
+  border-radius: 10px;
+}
+
+.createPost-form {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px 0;
+}
+
+.post-form-title {
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.post-form-field {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.post-form-label {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.post-form-input {
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--SecLightGray);
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+.category-btns {
+  display: flex;
+  padding: 5px;
+}
+
+.cat-btn {
+  margin-left: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.cat-btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.cat-btn-active {
+  transform: scale(1.1);
+}
+
+.cat-btn:first-child {
+  margin-left: 0px;
+}
+
+.post-form-body-field {
+  padding: 10px;
+  border-radius: 10px;
+  resize: none;
+  border: 1px solid var(--SecLightGray);
+}
+
+.createPost-submit-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2px;
+}
+
+.createPost-submit-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid var(--BlueOutline);
+  background-color: var(--SJSUBlue);
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+
+.createPost-submit-btn:hover{
+  cursor: pointer; 
+  transform: scale(1.03);
+}
