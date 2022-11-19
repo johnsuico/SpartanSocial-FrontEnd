@@ -5,7 +5,7 @@ import Axios from 'axios';
 import './PreviousPosts.css';
 
 // Import components
-import PostModule from '../../PostModule/PostModule';
+import PostModule from '../../postModule/PostModule';
 
 export default function PreviousPosts(props) {
 

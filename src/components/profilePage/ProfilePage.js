@@ -6,7 +6,7 @@ import Axios from 'axios';
 import './ProfilePage.css';
 
 // Import components
-import Navbar from '../Navbar/navbar';
+import Navbar from '../navbar/navbar';
 import PreviousPosts from './PreviousPosts/PreviousPosts';
 import PreviousComments from './PreviousComments/PreviousComments';
 import PreviousEvents from './PreviousEvents/PreviousEvents';

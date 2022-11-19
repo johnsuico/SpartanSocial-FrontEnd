@@ -6,18 +6,18 @@ import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import "./App.css";
 
 // Import Page Components
-import Landing from './Components/Landing/landing';
-import Login from './Components/Login-Create/Login/login';
-import CreateAccount from './Components/Login-Create/CreateAccount/createAccount';
-import CreateAccount2 from './Components/Login-Create/CreateAccount/accountInfo';
-import CreateAccount3 from './Components/Login-Create/CreateAccount/accountOptInfo';
-import SubforumPage from './Components/SubforumModule/SubforumPage';
-import Post from './Components/SpecificPost/Post';
-import CreatePost from './Components/CreatePost/CreatePost';
-import EventsMainPage from './Components/EventsPage/EventsMainPage';
-import CreateEventPage from './Components/EventsPage/CreateEventPage/CreateEventPage';
-import SpecificEvent from './Components/EventsPage/SpecificEventPage/SpecificEventPage';
-import ProfilePage from './Components/ProfilePage/ProfilePage';
+import Landing from './components/landing/landing';
+import Login from './components/login-Create/login/login';
+import CreateAccount from './components/login-Create/createAccount/createAccount';
+import CreateAccount2 from './components/login-Create/createAccount/accountInfo';
+import CreateAccount3 from './components/login-Create/createAccount/accountOptInfo';
+import SubforumPage from './components/subforumModule/SubforumPage';
+import Post from './components/specificPost/Post';
+import CreatePost from './components/createPost/CreatePost';
+import EventsMainPage from './components/eventsPage/EventsMainPage';
+import CreateEventPage from './components/eventsPage/CreateEventPage/CreateEventPage';
+import SpecificEvent from './components/eventsPage/SpecificEventPage/SpecificEventPage';
+import ProfilePage from './components/profilePage/ProfilePage';
 
 const router = createBrowserRouter ([
   {

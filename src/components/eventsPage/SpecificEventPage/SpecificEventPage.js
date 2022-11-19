@@ -6,7 +6,7 @@ import Axios from 'axios';
 import './SpecificEventPage.css'
 
 // Import Components
-import Navbar from '../../Navbar/navbar';
+import Navbar from '../../navbar/navbar';
 
 export default function SpecificEvent() {
 

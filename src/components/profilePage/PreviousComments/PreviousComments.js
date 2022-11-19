@@ -5,7 +5,7 @@ import Axios from 'axios';
 import './PreviousComments.css';
 
 // Import components
-import  PostComment from '../../SpecificPost/PostComments/PostComment';
+import  PostComment from '../../specificPost/PostComments/PostComment';
 
 export default function PreviousComments(props) {
 
