@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Axios from 'axios';
 
 // Importing CSS
@@ -130,10 +130,12 @@ export default function PostComment(props) {
       <div className="postComment-content-container">
         <div className="comment-header-container">
           <div className="default-profile-pic-small"></div>
-          <div className="author-date-container">
-            <p className="commentAuthor">{author.firstName} {author.lastName}</p>
-            <p className="commentDate">{commentDate}</p>
-          </div>
+          <Link to={`/profilepage/${author._id}`} className="profileLink">
+            <div className="author-date-container">
+              <p className="commentAuthor">{author.firstName} {author.lastName}</p>
+              <p className="commentDate">{commentDate}</p>
+            </div>
+          </Link>
         </div>
         <div className="comment-body-container">
           <p className="comment-body-content">{props.commentBody}</p>

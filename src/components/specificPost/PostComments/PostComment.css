@@ -7,6 +7,8 @@
   justify-content: center;
 }
 
+
+
 .postComment-content-container {
   width: 90%;
   margin: 20px 0;
@@ -24,8 +26,24 @@
   width: 48px;
 }
 
+.profileLink {
+  color: black;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+.author-date-container {
+  height: 100%;
+  width: 100%;
+}
+
 .commentAuthor {
   font-size: 14px;
+  transition: all 0.5s;
+}
+
+.commentAuthor:hover {
+  color: var(--SJSUBlue);
 }
 
 .commentDate {
