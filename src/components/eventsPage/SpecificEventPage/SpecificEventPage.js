@@ -130,6 +130,9 @@ export default function SpecificEvent() {
     navigate(`/events`);
   }
 
+  const newDate = new Date(event.eventDate);
+  const eventDate = newDate.toDateString();
+
   return (
     <div className="specificEvent-page-container">
       <Navbar active="events" />
@@ -145,9 +148,11 @@ export default function SpecificEvent() {
               }
             </div>
             <p className="specificEvent-author">Event created by: {eventCreator.firstName} {eventCreator.lastName}</p>
+            <p className="specificEvent-eventDate">Event Date: {eventDate}</p>
           </div>
 
           <div className="specificEvent-desc-container">
+            <p className="specificEvent-desc-title">Event Description:</p>
             <p className="specificEvent-desc">{event.eventDesc}</p>
           </div>
 
