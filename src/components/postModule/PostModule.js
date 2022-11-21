@@ -133,29 +133,37 @@ export default function PostPage(props) {
     }
   }
 
+  function gotoProfile() {
+    navigate(`profilePage/${author._id}`)
+  }
+
   return (
     <div className="post-container">
       <div className="post-content">
         <Link to={`/${parentForumId}/${subForumId}/${props.postID}`} className="post-link">
           <h2 className="postTitle">{props.postTitle}</h2>
+        </Link> 
           <div className="postHeader-info-container">
             <div className="postAuthor-container">
               <div className="default-profile-pic"></div>
-              <Link to ={`/profilepage/${author._id}`} className="profileLink">
-                <div className="author-date-container">
-                  <p className="postAuthor">{author.firstName} {author.lastName}</p>
-                  <p className="postDate">{postDate}</p>
-                </div>
+              <Link to={`/profilePage/${author._id}`} className="profileLink">
+              <div className="author-date-container">
+                <p className="postAuthor profileLink">{author.firstName} {author.lastName}</p>
+                <p className="postDate">{postDate}</p>
+              </div>
               </Link>
             </div>
-            <div className="category">
-              <Category category={props.postCategory} />
+            <Link to={`/${parentForumId}/${subForumId}/${props.postID}`} className="post-link">
+              <div className="category">
+                <Category category={props.postCategory} />
+              </div>
+            </Link>
+          </div>
+          <Link to={`/${parentForumId}/${subForumId}/${props.postID}`} className="post-link">
+            <div className="postBody-container">
+              <p className="postBody">{props.postBody}</p>
             </div>
-          </div>
-          <div className="postBody-container">
-            <p className="postBody">{props.postBody}</p>
-          </div>
-        </Link>
+          </Link>
         <div className="postFooter-container">
           <div className="commentCounter-container">
             <IoChatbubbleSharp className="comment-icon" />
