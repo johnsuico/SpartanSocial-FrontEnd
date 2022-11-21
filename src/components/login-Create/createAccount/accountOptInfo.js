@@ -54,7 +54,7 @@ export default function Login() {
     // Creating a JSON
     const updateAccountInfo = {
       gradDate,
-      birth,
+      birthDate,
       pronouns,
       gender,
       bio
