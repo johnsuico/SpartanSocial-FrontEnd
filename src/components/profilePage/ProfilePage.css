@@ -19,10 +19,10 @@
 
 .profilePage-default-pic {
   height: 96px;
-  width: 96px;
+  width: 108px;
   border: 1px solid var(--SJSUBlue);
   background-color: var(--ProfilePictureBlue);
-  border-radius: 50px;
+  border-radius: 10px;
 }
 
 .profilePage-header-info {
@@ -51,6 +51,7 @@
 .editProfile-link:hover {
   color: var(--SecDarkGray);
   border-color: var(--SecDarkGray);
+  cursor: pointer;
 }
 
 .adminCheck-container {

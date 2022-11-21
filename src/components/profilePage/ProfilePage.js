@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams, Link} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 import Axios from 'axios';
 
 // Importing CSS
@@ -16,14 +16,23 @@ import {FaCheckCircle} from 'react-icons/fa';
 
 export default function ProfilePage() {
 
+  const navigate = useNavigate();
+
   const {userID} = useParams();
 
   const [user, setUser] = useState({});
+  const [currentUserID, setCurrentUserID] = useState('')
   const [isAdmin, setAdmin] = useState(false);
   const [isMod, setMod] = useState(false);
   const [active, setActive] = useState('posts');
 
   useEffect(() => {
+
+    if (localStorage.getItem('user')) {
+      const userInStorage = JSON.parse(localStorage.getItem('user'));
+      setCurrentUserID(userInStorage.user_id)
+    }
+
     Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
       .then (res => {
         setUser(res.data);
@@ -32,7 +41,8 @@ export default function ProfilePage() {
       })
       .catch (err => {
         console.log(err);
-      })
+      }) 
+
   }, [])
 
   const newDate = new Date(user.gradDate);
@@ -40,6 +50,10 @@ export default function ProfilePage() {
 
   function clickActive(e) {
     setActive(e.currentTarget.value);
+  }
+
+  function editProfile() {
+    navigate(`/profilePage/${userID}/edit`);
   }
 
   return (
@@ -56,10 +70,8 @@ export default function ProfilePage() {
               <div className="profilePage-header-top-container">
                 <h2 className="profilePage-name">{user.firstName} {user.lastName}</h2>
 
-                {userID === user._id ?
-                  <Link to={`/profilePage/${userID}/edit`} className="editProfile-link" >
-                    <p className="editProfile-button">Edit Profile</p>
-                  </Link>
+                {userID === currentUserID ?
+                  <p className="editProfile-link" onClick={editProfile}>Edit Profile</p>
                 :
                   null
                 }
