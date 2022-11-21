@@ -26,14 +26,12 @@
 .deleteComment{
   font-size: 12px;
   color: var(--SecLightGray);
-  border-bottom: 1px solid transparent;
   transition: all 0.5s;
 }
 
 .deleteComment:hover {
   cursor: pointer;
   color: var(--SecDarkGray);
-  border-color: 1px solid var(--SecDarkGray);
 }
 
 .default-profile-pic-small {

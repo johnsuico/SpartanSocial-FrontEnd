@@ -125,6 +125,10 @@ export default function PostComment(props) {
     }
   }
 
+  function deleteComment() {
+    Axios.delete(`https://spartansocial-api.herokuapp.com/comments/${props.postID}/${props.commentID}`);
+  }
+
   return (
     <div className="postComment-container">
       <div className="postComment-content-container">
@@ -140,7 +144,7 @@ export default function PostComment(props) {
           </div>
           {userID === author._id ?
             <div className="deleteComment-container">
-              <p className="deleteComment">Delete Comment</p>
+              <p className="deleteComment" onClick={deleteComment}>Delete Comment</p>
             </div>
           :
             null
