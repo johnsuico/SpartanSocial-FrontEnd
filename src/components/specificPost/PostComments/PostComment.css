@@ -14,8 +14,26 @@
   margin: 20px 0;
 }
 
+.comment-header-author-container {
+  display: flex;
+}
+
 .comment-header-container {
   display: flex;
+  justify-content: space-between;
+}
+
+.deleteComment{
+  font-size: 12px;
+  color: var(--SecLightGray);
+  border-bottom: 1px solid transparent;
+  transition: all 0.5s;
+}
+
+.deleteComment:hover {
+  cursor: pointer;
+  color: var(--SecDarkGray);
+  border-color: 1px solid var(--SecDarkGray);
 }
 
 .default-profile-pic-small {

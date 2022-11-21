@@ -129,13 +129,22 @@ export default function PostComment(props) {
     <div className="postComment-container">
       <div className="postComment-content-container">
         <div className="comment-header-container">
-          <div className="default-profile-pic-small"></div>
-          <Link to={`/profilepage/${author._id}`} className="profileLink">
-            <div className="author-date-container">
-              <p className="commentAuthor">{author.firstName} {author.lastName}</p>
-              <p className="commentDate">{commentDate}</p>
-            </div>
+          <div className="comment-header-author-container">
+            <div className="default-profile-pic-small"></div>
+            <Link to={`/profilepage/${author._id}`} className="profileLink">
+              <div className="author-date-container">
+                <p className="commentAuthor">{author.firstName} {author.lastName}</p>
+                <p className="commentDate">{commentDate}</p>
+              </div>
           </Link>
+          </div>
+          {userID === author._id ?
+            <div className="deleteComment-container">
+              <p className="deleteComment">Delete Comment</p>
+            </div>
+          :
+            null
+          }
         </div>
         <div className="comment-body-container">
           <p className="comment-body-content">{props.commentBody}</p>
