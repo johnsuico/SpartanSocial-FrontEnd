@@ -24,6 +24,12 @@
   flex: 1;
 }
 
+.eventDate {
+  border-bottom: 1px solid var(--SecLightGray);
+  padding-bottom: 5px;
+  margin: 5px 0;
+}
+
 .event-desc {
   flex: 4;
 }
@@ -89,3 +95,4 @@
   flex-direction: column;
   flex: 4;
 }
+

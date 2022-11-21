@@ -113,12 +113,17 @@ export default function EventComponent(props) {
     }
   }
 
+  const newDate = new Date(props.eventDate);
+  const eventDate = newDate.toDateString();
+
   return (
     <div className="eventComponent">
       <div className="eventComponent-content-container">
 
         <Link to={`/events/`+props.eventID+'/'+props.eventCreator} className="specificEvent-link">
           <h2 className="event-title">{props.eventTitle}</h2>
+
+          <p className="eventDate">{eventDate}</p>
           
           {eventDescLength >= 200 ?
             <p className="event-desc">{props.eventDesc.substring(0, 200)}...</p>
