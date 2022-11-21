@@ -18,7 +18,7 @@ import EventsMainPage from './components/eventsPage/EventsMainPage';
 import CreateEventPage from './components/eventsPage/CreateEventPage/CreateEventPage';
 import SpecificEvent from './components/eventsPage/SpecificEventPage/SpecificEventPage';
 import ProfilePage from './components/profilePage/ProfilePage';
-import EditProfile from './components/profilePage/editProfile/editProfile';
+import EditProfile from './components/profilePage/editProfile/editProfile.js';
 
 const router = createBrowserRouter ([
   {

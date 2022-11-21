@@ -133,10 +133,6 @@ export default function PostPage(props) {
     }
   }
 
-  function gotoProfile() {
-    navigate(`profilePage/${author._id}`)
-  }
-
   return (
     <div className="post-container">
       <div className="post-content">
