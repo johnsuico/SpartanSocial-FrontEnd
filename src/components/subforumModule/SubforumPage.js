@@ -53,7 +53,7 @@ export default function SubforumPage() {
       setLogged(false);
     }
 
-  }, [])
+  }, [posts])
 
   function createPostPage() {
     if (isLogged) {

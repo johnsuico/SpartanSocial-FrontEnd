@@ -133,12 +133,29 @@ export default function PostPage(props) {
     }
   }
 
+  function deletePost() {
+    Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}`)
+      .then (() => {
+       console.log('Deleted Post');
+      })
+      .catch(err => console.log(err));
+  }
+
   return (
     <div className="post-container">
       <div className="post-content">
-        <Link to={`/${parentForumId}/${subForumId}/${props.postID}`} className="post-link">
-          <h2 className="postTitle">{props.postTitle}</h2>
-        </Link> 
+        <div className="post-content-header-title-container">
+          <Link to={`/${parentForumId}/${subForumId}/${props.postID}`} className="post-link">
+            <h2 className="postTitle">{props.postTitle}</h2>
+          </Link>
+          {userID === author._id ?
+            <div className="deletePost-container">
+              <p className="deletePost" onClick={deletePost}>Delete Post</p>
+            </div>
+          :
+            null
+          }
+        </div>
           <div className="postHeader-info-container">
             <div className="postAuthor-container">
               <div className="default-profile-pic"></div>

@@ -24,6 +24,23 @@
   flex-direction: column;
 }
 
+.post-content-header-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deletePost {
+  font-size: 14px;
+  color: var(--SecLightGray);
+  transition: all 0.5s;
+}
+
+.deletePost:hover {
+  color: var(--SecDarkGray);
+  cursor: pointer;
+}
+
 .postTitle {
   margin-top: 3%;
   font-weight: bold;
