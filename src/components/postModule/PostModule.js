@@ -141,10 +141,12 @@ export default function PostPage(props) {
           <div className="postHeader-info-container">
             <div className="postAuthor-container">
               <div className="default-profile-pic"></div>
-              <div className="author-date-container">
-                <p className="postAuthor">{author.firstName} {author.lastName}</p>
-                <p className="postDate">{postDate}</p>
-              </div>
+              <Link to ={`/profilepage/${author._id}`} className="profileLink">
+                <div className="author-date-container">
+                  <p className="postAuthor">{author.firstName} {author.lastName}</p>
+                  <p className="postDate">{postDate}</p>
+                </div>
+              </Link>
             </div>
             <div className="category">
               <Category category={props.postCategory} />

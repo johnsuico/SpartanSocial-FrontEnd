@@ -36,8 +36,13 @@
   justify-content: space-between;
 }
 
+.profileLink {
+  text-decoration: none;
+}
+
 .postAuthor-container {
   display: flex;
+  height: 100%;
 }
 
 .author-date-container {
@@ -49,6 +54,11 @@
 
 .postAuthor {
   font-weight: 400;
+  transition: all 0.5s;
+}
+
+.postAuthor:hover {
+  color: var(--SJSUBlue);
 }
 
 .postDate {
