@@ -1,0 +1,90 @@
+.editProfile-container {
+  width: 40%; 
+  background-color: white;
+  border: 1px solid var(--SecLightGray);
+  border-radius: 10px;
+  margin: 5% auto;
+}
+
+.editProfile-form {
+  width: 90%;
+  margin: 4% auto;
+}
+
+.editProfile-header-container {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+
+.editProfile-header-title {
+  font-weight: 600;
+}
+
+.editProfile-header-caption {
+  color: var(--SecDarkGray);
+}
+
+.editProfile-form-field {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.editProfile-form-label {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.editProfile-form-input {
+  height: 40px;
+  font-size: 14px;
+  padding-left: 10px;
+  border: 1px solid var(--SecLightGray);
+  border-radius: 10px;
+}
+
+.editProfile-checkbox-container {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.editProfile-checkbox-label {
+  font-size: 14px;
+}
+
+.editProfile-checkbox {
+  margin-left: 5px;
+  height: 16px;
+  width: 16px;
+}
+
+.editProfile-form-input-textarea {
+  resize: none;
+  border-color: var(--SecLightGray);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.editProfile-form-footer {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  height: 40px;
+  margin: 20px 0;
+}
+
+.editProfile-submit-btn {
+  height: 100%;
+  padding: 5px 10px;
+  border: 1px solid var(--BlueOutline);
+  background-color: var(--SJSUBlue);
+  color: white;
+  border-radius: 10px;
+}
+
+.editProfile-submit-btn:hover {
+  cursor: pointer;
+}
