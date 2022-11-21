@@ -14,7 +14,7 @@ export default function Login() {
 
   // React hooks to store values
   const [gradDate, setGradDate] = useState('');
-  const [birth, setBirth] = useState('');
+  const [birthDate, setBirth] = useState('');
   const [pronouns, setPronouns] = useState('');
   const [gender, setGender] = useState('');
   const [bio, setBio] = useState('');
@@ -103,7 +103,7 @@ export default function Login() {
 
               <div className = "account-form-field">
                 <label className = "form-label">Birthday</label>
-                <input className = {birth ? "opt-input-field birth-field-done" : "opt-input-field"} type ="date" onChange={birthChange} value={birth} placeholder="MM/DD/YYYY"/>
+                <input className = {birthDate ? "opt-input-field birth-field-done" : "opt-input-field"} type ="date" onChange={birthChange} value={birthDate} placeholder="MM/DD/YYYY"/>
               </div>
 
             </div>
