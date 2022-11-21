@@ -19,7 +19,7 @@ export default function PreviousComments(props) {
       .catch (err => {
         console.log(err);
       })
-  }, [])
+  }, [comments])
 
   return (
     <div className="previousPosts-container">
