@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 import Axios from 'axios';
 
 // Import CSS
@@ -9,6 +9,7 @@ import './editProfile.css';
 import Navbar from '../../navbar/navbar';
 
 export default function editProfile() {
+  const navigate = useNavigate();
 
   const {userID} = useParams();
 
@@ -117,6 +118,8 @@ export default function editProfile() {
     Axios.post(`https://spartansocial-api.herokuapp.com/users/${userID}/register/cp3`, updateAccountInfoTwo)
       .then (res => console.log(res.data))
       .catch (err => console.log(err));
+
+    navigate(`/profilepage/${userID}`);
   }
 
   return (
