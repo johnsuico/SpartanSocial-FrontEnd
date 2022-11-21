@@ -28,3 +28,20 @@
   border-top: 1px solid var(--SecLightGray);
   margin-top: 20px;
 }
+
+.specificEvent-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deleteEvent {
+  color: var(--SecLightGray);
+  font-size: 14px;
+  transition: all 0.5s;
+}
+
+.deleteEvent:hover {
+  cursor: pointer;
+  color: var(--SecDarkGray);
+}

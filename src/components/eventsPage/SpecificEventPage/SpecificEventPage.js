@@ -123,13 +123,27 @@ export default function SpecificEvent() {
     }
   }
 
+  function deleteEvent() {
+    // DELETE /events/:eventID
+    Axios.delete(`https://spartansocial-api.herokuapp.com/events/${eventID}`)
+
+    navigate(`/events`);
+  }
+
   return (
     <div className="specificEvent-page-container">
       <Navbar active="events" />
       <div className="specificEvent-page">
         <div className="specificEvent-content-container">
           <div className="specificEvent-header">
-            <h2 className="specificEvent-title">{event.eventTitle}</h2>
+            <div className="specificEvent-header-container">
+              <h2 className="specificEvent-title">{event.eventTitle}</h2>
+              {userID === eventCreatorID ?
+                <p className="deleteEvent" onClick={deleteEvent}>Delete Event</p>
+              :
+                null
+              }
+            </div>
             <p className="specificEvent-author">Event created by: {eventCreator.firstName} {eventCreator.lastName}</p>
           </div>
 
