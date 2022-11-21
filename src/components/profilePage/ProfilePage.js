@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import Axios from 'axios';
 
 // Importing CSS
@@ -53,7 +53,18 @@ export default function ProfilePage() {
           <div className="profilePage-header">
             <div className="profilePage-default-pic"></div>
             <div className="profilePage-header-info">
-              <h2 className="profilePage-name">{user.firstName} {user.lastName}</h2>
+              <div className="profilePage-header-top-container">
+                <h2 className="profilePage-name">{user.firstName} {user.lastName}</h2>
+
+                {userID === user._id ?
+                  <Link to={`/profilePage/${userID}/edit`} className="editProfile-link" >
+                    <p className="editProfile-button">Edit Profile</p>
+                  </Link>
+                :
+                  null
+                }
+
+              </div>
 
               {isAdmin ? 
                 <div className="adminCheck-container">

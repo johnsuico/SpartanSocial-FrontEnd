@@ -30,6 +30,27 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
+}
+
+.profilePage-header-top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editProfile-link {
+  text-decoration: none;
+  color: var(--GrayCaption);
+  font-size: 14px;
+  border-bottom: 1px solid transparent;
+  transition: all 0.5s;
+  padding-bottom: 5px;
+}
+
+.editProfile-link:hover {
+  color: var(--SecDarkGray);
+  border-color: var(--SecDarkGray);
 }
 
 .adminCheck-container {

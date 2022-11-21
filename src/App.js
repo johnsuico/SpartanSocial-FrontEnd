@@ -18,6 +18,7 @@ import EventsMainPage from './components/eventsPage/EventsMainPage';
 import CreateEventPage from './components/eventsPage/CreateEventPage/CreateEventPage';
 import SpecificEvent from './components/eventsPage/SpecificEventPage/SpecificEventPage';
 import ProfilePage from './components/profilePage/ProfilePage';
+import EditProfile from './components/profilePage/editProfile/editProfile';
 
 const router = createBrowserRouter ([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter ([
   {
     path: "/profilepage/:userID",
     element: <ProfilePage />
+  },
+  {
+    path: "/profilepage/:userID/edit",
+    element: <EditProfile />
   }
 ])
 
