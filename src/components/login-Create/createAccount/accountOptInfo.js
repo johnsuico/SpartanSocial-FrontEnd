@@ -60,6 +60,7 @@ export default function Login() {
       bio
     }
 
+    // API POST request to send the data to the database to update the user's data.
     Axios.post(`https://spartansocial-api.herokuapp.com/users/${id}/register/cp3`, updateAccountInfo)
     .then(res => {
       navigate(`/`);

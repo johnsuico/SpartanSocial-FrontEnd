@@ -46,14 +46,17 @@ export default function Login() {
       password
     }
 
-    console.log(user);
-
+    // API POST request to the API to create a new user and store their data in the database.
     Axios.post("https://spartansocial-api.herokuapp.com/users/auth", user)
     .then(res => {
+      // If successful, take the response data and store in the browser's local storage so that we can check if the user is logged in or not.
       localStorage.setItem('user', JSON.stringify(res.data.user));
+
+      // Redirect to the landing page once logged in.
       navigate('/');
     })
     .catch(err => {
+      // If there are any errors, print them on the console.
       console.log(err);
     })
   }
@@ -76,27 +79,33 @@ export default function Login() {
           {/* Login form container */}
           <form className="account-form" onSubmit={handleLogin}>
 
+            {/* Form title and caption. */}
             <div className="account-header-container">
               <h1 className="account-header">Log in</h1>
               <p className="account-header-caption">Welcome back! Please enter in your details.</p>
             </div>
 
+            {/* Login form email field. */}
             <div className = "account-form-field">
               <label className = "form-label">Email</label>
               <input className = "account-input-field" type ="text" onChange={emailChange} value={email} placeholder="Email"/>
             </div>
 
+            {/* Login form password field. */}
             <div className="account-form-field">
               <label className="form-label">Password</label>
               <input className="account-input-field" type="password" onChange={passChange} value={password} placeholder="Password"/>
             </div>
 
             <div className="login-extra-container">
+              {/* Checkbox asking the user to remember them or not. */}
               <div className="account-check-container">
                 <input type="checkbox" className="account-check" value={checked} onChange={onCheck}/>
                 <label className="remember-me-caption">Remember me</label>
               </div>
 
+              {/* DEAD LINK, just there for the design. */}
+              {/* Forgot password functionality is not implemented. */}
               <div className="forgot-pass-container">
                 <Link to="/" className="account-link">
                   <p>Forgot password?</p>
@@ -104,8 +113,10 @@ export default function Login() {
               </div>
             </div>
 
+            {/* Forum submit button. */}
             <button className="submit-btn" type="submit">Log in</button>
         
+            {/* Footer content with extra information for the user. */}
             <div className="account-extra-container">
               <p className="account-extra-caption">Don't have an account?</p>
               <Link to="/createAccount" className="account-link">Sign up here</Link>
@@ -124,8 +135,10 @@ export default function Login() {
 
           <div className="right-content">
 
+            {/* Login graphic on the right hand side of the screen. */}
             <img src={rhsGraphic} alt="Login graphic" className="rhsGraphic" />
 
+            {/* Information shown to the user while logging in. */}
             <div className="right-content-info">
               <h2 className="right-content-header">Welcome to SpartanSocial</h2>
               <p className="right-content-caption">Sign in to start asking questions</p>

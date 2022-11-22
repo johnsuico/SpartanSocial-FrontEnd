@@ -14,31 +14,42 @@ import {FaPlus} from 'react-icons/fa';
 
 export default function EventsMainPage() {
 
+  // React hooks (variables) to hold information needed for the page.
   const [events, setEvents] = useState([]);
   const [isEmpty, setEmpty] = useState(true);
   const [isLogged, setLogged] = useState(false);
 
+  // Renaming the useNavigate hook from react-router-dom to navigate.
   const navigate = useNavigate();
 
+  // useEffect is used to run code once the page loads, only runs once per render.
   useEffect(() => {
+
+    // Check if the user is logged in. Set "isLogged" state to true if logged in.
     if(localStorage.getItem('user')) {
       setLogged(true);
     } else {
       setLogged(false);
     }
 
+    // API GET request to fetch all the events in the database.
     Axios.get(`https://spartansocial-api.herokuapp.com/events`)
       .then(res => {
+        // Store the data in the events hook.
         setEvents(res.data);
+        // If the event array from the database is not equal to 0, then the array is not empty. Set to false.
         if (res.data.length !== 0) {
           setEmpty(false);
         }
       })
       .catch(err => {
-        console.log(err);
+        console.log(err); // If there are any errors, output them to the console. Only viewable in developer mode.
       })
   }, [events])
 
+  // Handles where to redirect the user depending on if they are logged on or not.
+  // If they are logged on, take them to the form. Since only people with accounts can create events.
+  // If they are NOT logged on, take them to the login page.
   function createEventPage() {
     if (isLogged) {
       navigate(`/events/create`);
@@ -49,6 +60,7 @@ export default function EventsMainPage() {
 
   return (
     <div className="eventsMainPage">
+      {/* Navbar component with "events" as the active tab. */}
       <Navbar active="events" />
 
       <div className="eventMainPage-container">
@@ -80,6 +92,7 @@ export default function EventsMainPage() {
           </div>
           :
           <div className="eventComponent-container">
+          {/* Go through the array and pass through the data to the EventComponent */}
             {
               events.map(event => 
                 <EventComponent 
