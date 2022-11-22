@@ -12,22 +12,28 @@ import PostComment from './PostComments/PostComment';
 
 export default function SpecificPost() {
 
+  // Grab the postID from the URL parameters.
   const {postId} = useParams();
 
+  // React states to hold information for the page.
   const [post, setPost] = useState({});
   const [commentPostLength, setPostCommentLength] = useState(0);
   const [commentArray, setCommentArray] = useState([]);
   const [newComment, setNewComment] = useState('');
 
+  // Grab the user in local storage and create a variable for the userID.
   const userInStorage = JSON.parse(localStorage.getItem('user'));
   const [userID, setUserID] = useState('');
 
+  // Variable to hold if the user is logged in or not.
   const [isLogged, setLogged] = useState(false);
 
+  // Used to redirect the user.
   const navigate = useNavigate();
 
   useEffect(() => {
 
+    // Check if the user is logged in.
     if (localStorage.getItem('user')) {
       setLogged(true);
     } else {
@@ -44,6 +50,7 @@ export default function SpecificPost() {
         console.log(err);
       })
 
+      // Get comments in the post.
     Axios.get(`https://spartansocial-api.herokuapp.com/comments/${postId}`)
       .then (res => {
         setCommentArray(res.data);
@@ -57,17 +64,21 @@ export default function SpecificPost() {
       }
   }, [commentArray])
   
+  // Handles what happens when the user creates a new comment.
   function handleSubmit(e) {
+    // Prevents the page from reloading once the user hits the submit button.
     e.preventDefault();
 
-    console.log('Sending comment');
-
+    // If the user is logged in, create the new comment.
+    // If the user is NOT logged in, send them to the login page.
     if (isLogged) {
+      // JSON carrying the comment data.
       const sendComment = {
         commentAuthor: userID,
         commentBody: newComment
       };
 
+      // API POST request to send the comment data to the database and add it to the post.
       Axios.post(`https://spartansocial-api.herokuapp.com/comments/${postId}`, sendComment)
       .then()
       .catch(err => console.log(err));
@@ -78,6 +89,7 @@ export default function SpecificPost() {
 
   }
 
+  // Change the contents of the newComment state when a user changes it.
   function onChangeComment(e) {
     setNewComment(e.target.value);
   }

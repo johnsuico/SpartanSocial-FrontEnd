@@ -9,9 +9,11 @@ import PostModule from '../../postModule/PostModule';
 
 export default function PreviousPosts(props) {
 
+  // React state to hold the posts.
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    // Grab the posts from a specific user.
     Axios.get(`https://spartansocial-api.herokuapp.com/users/${props.userID}/posts`)
       .then (res => {
         setPosts(res.data);

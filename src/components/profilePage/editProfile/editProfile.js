@@ -9,10 +9,13 @@ import './editProfile.css';
 import Navbar from '../../navbar/navbar';
 
 export default function editProfile() {
+  // Used to redirect the user.
   const navigate = useNavigate();
 
+  // Used to grab the URL parameters.
   const {userID} = useParams();
 
+  // React state to hold onto the user's information.
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [userName, setUserName] = useState('');
@@ -27,6 +30,7 @@ export default function editProfile() {
   const [bio, setBio] = useState('');
 
   useEffect(() => {
+    // Grab the user's data to be modified.
     Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
       .then (res => {
         setFirstName(res.data.firstName);
@@ -46,6 +50,7 @@ export default function editProfile() {
 
   }, [])
 
+  // Function to handle any changes in the inputs.
   function handleChange(e) {
     const {name, value} = e.target;
 
@@ -91,9 +96,12 @@ export default function editProfile() {
     }
   }
 
+  // Handles what happens when the user clicks the submit button.
   function onSubmit(e) {
+    // Prevents the page from reloading once the submit button is clicked.
     e.preventDefault();
 
+    // The first JSON that holds the informaton that needs to be updated.
     const updateAccountInfoOne = {
         firstName,
         lastName,
@@ -103,6 +111,7 @@ export default function editProfile() {
         isStudent
     }
     
+    // The second JSON that holds the information that needs to be updated.
     const updateAccountInfoTwo = {
       gradDate,
       birthDate,
@@ -111,14 +120,17 @@ export default function editProfile() {
       bio
     }
 
+    // API POST request for the first JSON.
     Axios.post(`https://spartansocial-api.herokuapp.com/users/${userID}/register/cp2`, updateAccountInfoOne)
       .then (res => console.log(res.data))
       .catch (err => console.log(err));
 
+    // API POST request for the second JSON.
     Axios.post(`https://spartansocial-api.herokuapp.com/users/${userID}/register/cp3`, updateAccountInfoTwo)
       .then (res => console.log(res.data))
       .catch (err => console.log(err));
 
+    // Redirect the user to their profile page when done.
     navigate(`/profilepage/${userID}`);
   }
 

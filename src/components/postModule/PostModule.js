@@ -17,10 +17,12 @@ export default function PostPage(props) {
   // Grab stored user in local storage.
   let userInStorage = JSON.parse(localStorage.getItem('user'));
 
+  // Variables to store data.
   const [author, setAuthor] = useState({});
   const [userID, setUserID] = useState('');
   const [isLogged, setLogged] = useState(false);
 
+  // Used to redirect users.
   const navigate = useNavigate();
 
   // Variables to hold if user has already voted on post
@@ -31,6 +33,7 @@ export default function PostPage(props) {
   const [upCount, setUpcount] = useState(props.postUpvote);
   const [downCount, setDowncount] = useState(props.postDownvote);
 
+  // Varible to hold the parentForumID
   let {parentForumId, subForumId} = useParams();
 
   useEffect(() => {
@@ -49,15 +52,18 @@ export default function PostPage(props) {
 
       setUserID(userInStorage.user_id);
       setLogged(true);
-
+      
+      // Grab user data.
       Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
         .then (res => {
+          // Check if the post has already been upvoted by user.
           if (res.data[0].upvotedPosts.includes(props.postID)) {
             setUpvote(true);
           } else {
             setUpvote(false);
           }
-
+          
+          // Check if the post has already been downvoted by user.
           if (res.data[0].downvotedPosts.includes(props.postID)) {
             setDownvote(true);
           } else {
@@ -68,9 +74,11 @@ export default function PostPage(props) {
     } 
   }, [])
 
+  // Takes the date and parses it into something the webpage can display and the user can easily read.
   let date = new Date(props.postDate);
   const postDate = date.toDateString();
 
+  // Upvote function to add an upvote, incrementing the upvote counter by 1.
   function addUpvote() {
     if (isLogged) {
       Axios.post(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/upvote`, {userID});
@@ -81,6 +89,7 @@ export default function PostPage(props) {
     }
   }
 
+  // Remove upvote function to remove an upvote, decrementing the upvote counter by -1.
   function removeUpvote() {
     if (isLogged) {
       Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/upvote`, {data: {userID}})
@@ -91,6 +100,7 @@ export default function PostPage(props) {
     }
   }
 
+  // Add a downvote, decrements the downvote counter by -1.
   function addDownvote() {
     if (isLogged) {
       Axios.post(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/downvote`, {userID});
@@ -101,6 +111,7 @@ export default function PostPage(props) {
     }
   }
 
+  // Removes a downvote, increments the upvote counter by 1.
   function removeDownvote() {
     if (isLogged) {
       Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/downvote`, {data: {userID}})
@@ -111,6 +122,7 @@ export default function PostPage(props) {
     }
   }
 
+  // Logic that handles the current state of upvoting and increments or decrements accordingly.
   function upvoteClick() {
     if (!upvote && !downvote) {
       addUpvote();
@@ -122,6 +134,7 @@ export default function PostPage(props) {
     }
   }
 
+  // Logic that handles the current state of downvoting and increments or decrements accordingly.
   function downvoteClick() {
     if (!downvote && !upvote) {
       addDownvote();
@@ -133,6 +146,7 @@ export default function PostPage(props) {
     }
   }
 
+  // Function delete a post from the database.
   function deletePost() {
     Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}`)
       .then (() => {

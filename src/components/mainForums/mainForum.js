@@ -19,6 +19,7 @@ export default function GeneralForum(props) {
     if (props.mainForumID === undefined || props.mainForumID === '') {
       // Do nothing, wait for it to load
     } else {
+      // API GET request to grab all of the subforums within a mainforum.
       Axios.get(`https://spartansocial-api.herokuapp.com/forums/mainForum/${props.mainForumID}/subForum`)
       .then(res => {
         setSubforums(res.data);
@@ -31,6 +32,7 @@ export default function GeneralForum(props) {
 
   return (
     <div className="subforums">
+    {/* Go through the subForums array and pass the data through to the SubforumModule */}
       {
         subForums.map(sub => 
           <SubforumModule

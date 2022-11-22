@@ -16,10 +16,13 @@ import {FaCheckCircle} from 'react-icons/fa';
 
 export default function ProfilePage() {
 
+  // Used to redirect to different pages.
   const navigate = useNavigate();
 
+  // Grabs the parameters from the URL.
   const {userID} = useParams();
 
+  // React states to hold data.
   const [user, setUser] = useState({});
   const [currentUserID, setCurrentUserID] = useState('')
   const [isAdmin, setAdmin] = useState(false);
@@ -28,11 +31,13 @@ export default function ProfilePage() {
 
   useEffect(() => {
 
+    // Check if the user is logged in and grab the userID.
     if (localStorage.getItem('user')) {
       const userInStorage = JSON.parse(localStorage.getItem('user'));
       setCurrentUserID(userInStorage.user_id)
     }
 
+    // API GET request to fetch the logged in user's data.
     Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
       .then (res => {
         setUser(res.data);
@@ -45,13 +50,16 @@ export default function ProfilePage() {
 
   }, [])
 
+  // Takes the date and parses it into something more readable for the user.
   const newDate = new Date(user.gradDate);
   const gradDate = newDate.getUTCFullYear();
 
+  // Sets the active chosen category.
   function clickActive(e) {
     setActive(e.currentTarget.value);
   }
 
+  // Function to direct the page to the edit user page.
   function editProfile() {
     navigate(`/profilePage/${userID}/edit`);
   }
@@ -70,6 +78,7 @@ export default function ProfilePage() {
               <div className="profilePage-header-top-container">
                 <h2 className="profilePage-name">{user.firstName} {user.lastName}</h2>
 
+                {/* Only show the edit profil button, if the user is on their own profile page. */}
                 {userID === currentUserID ?
                   <p className="editProfile-link" onClick={editProfile}>Edit Profile</p>
                 :
@@ -78,6 +87,7 @@ export default function ProfilePage() {
 
               </div>
 
+              {/* Logic to show if a user is SpartanSocial Admin or Moderator. */}
               {isAdmin ? 
                 <div className="adminCheck-container">
                   <FaCheckCircle className="adminCheck" />

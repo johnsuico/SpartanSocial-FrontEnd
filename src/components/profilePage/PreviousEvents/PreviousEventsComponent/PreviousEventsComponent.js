@@ -6,6 +6,7 @@ import './PreviousEventsComponent.css';
 
 export default function PreviousEventComponent(props) {
 
+  // Parses the date into something the user can easily read.
   const newDate = new Date(props.eventDate);
   const eventDate = newDate.toDateString();
 

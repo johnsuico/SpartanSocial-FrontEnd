@@ -13,11 +13,13 @@ export default function Landing({active}) {
     <div className="navbar">
       <div className="navbar-container">
         <div className="nav-section">
+          {/* Logo is clickable to go back to the landing page. */}
           <Link to="/" className="nav-logo">
             <img src={Logo} alt="Spartan Social Logo" />
           </Link>
         </div>
         <div className="nav-section">
+          {/* Navigation links that changes visual when selected. */}
           <Link to="/" className={
             active === 'forums' ?
             `nav-link link active` :

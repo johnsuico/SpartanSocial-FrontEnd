@@ -45,6 +45,7 @@ export default function PostComment(props) {
         setUserID(userInStorage.user_id);
         setLogged(true);
 
+        // Checks if the user as upvoted or downvoted the comment already.
         Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
           .then (res => {
             if (res.data.upvotedComments === undefined) {
@@ -63,6 +64,7 @@ export default function PostComment(props) {
       }
   }, [])
 
+  // Adds an upvote to the comment.
   function addCommentUpvote() {
     if (isLogged) {
       Axios.post(`https://spartansocial-api.herokuapp.com/comments/${props.postID}/${props.commentID}/upvote`, {userID})
@@ -73,6 +75,7 @@ export default function PostComment(props) {
     }
   }
 
+  // Removes an upvote from the comment.
   function removeCommentUpvote() {
     if (isLogged) {
       Axios.delete(`https://spartansocial-api.herokuapp.com/comments/${props.postID}/${props.commentID}/upvote`, {data: {userID}})
@@ -83,6 +86,7 @@ export default function PostComment(props) {
     }
   }
 
+  // Adds a downvote to the comment.
   function addCommentDownvote() {
     if (isLogged) {
       Axios.post(`https://spartansocial-api.herokuapp.com/comments/${props.postID}/${props.commentID}downpvote`, {userID})
@@ -93,6 +97,7 @@ export default function PostComment(props) {
     }
   }
 
+  // Removes a downvote from the comment.
   function removeCommentDownvote() {
     if (isLogged) {
       Axios.delete(`https://spartansocial-api.herokuapp.com/comments/${props.postID}/${props.commentID}/downvote`, {data: {userID}})
@@ -103,6 +108,8 @@ export default function PostComment(props) {
     }
   }
 
+  // Handles what functions should be called when the user clicks the upvote button.
+  // Depending on the current status of user's voting, different functions will be called.
   function commentUpvoteClick() {
     if (!upvoteComment && !downvoteComment) {
       addCommentUpvote();
@@ -114,6 +121,8 @@ export default function PostComment(props) {
     }
   }
 
+  // Handles what functions should be called when the user clicks the upvote button.
+  // Depending on the current status of user's voting, different functions will be called.
   function commentDownvoteClick() {
     if (!downvoteComment && !upvoteComment) {
       addCommentDownvote();
@@ -125,6 +134,7 @@ export default function PostComment(props) {
     }
   }
 
+  // Deletes the comment from the post.
   function deleteComment() {
     Axios.delete(`https://spartansocial-api.herokuapp.com/comments/${props.postID}/${props.commentID}`);
   }

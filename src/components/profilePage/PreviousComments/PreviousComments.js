@@ -9,9 +9,11 @@ import  PostComment from '../../specificPost/PostComments/PostComment';
 
 export default function PreviousComments(props) {
 
+  // React state to hold the comment array.
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
+    // Grab all the comments that the user has created.
     Axios.get(`https://spartansocial-api.herokuapp.com/users/${props.userID}/comments`)
       .then (res => {
         setComments(res.data);

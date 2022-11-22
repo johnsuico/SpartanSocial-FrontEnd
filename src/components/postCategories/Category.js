@@ -5,6 +5,7 @@ import './Category.css';
 
 export default function Category(props) {
 
+  // Checks what category is being chosen and returns the appropriate category.
   if (props.category === "Question") {
     return (
       <div className="category question">

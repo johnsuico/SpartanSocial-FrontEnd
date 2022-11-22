@@ -10,9 +10,11 @@ import PreviousEventComponent from './PreviousEventsComponent/PreviousEventsComp
 
 export default function PreviousEvents(props) {
 
+  // React state to hold onto the event data.
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
+    // Grab all of the events that the user has created.
     Axios.get(`https://spartansocial-api.herokuapp.com/users/${props.userID}/events`)
       .then (res => {
         setEvents(res.data);

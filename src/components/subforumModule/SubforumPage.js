@@ -14,13 +14,16 @@ import PostModule from '../postModule/PostModule';
 
 export default function SubforumPage() {
 
+  // React state to hold information needed for the page.
   const [posts, setPosts] = useState([]);
   const [parentForum, setParentForum] = useState({});
   const [isLogged, setLogged] = useState(false);
   const [isPostEmpty, setPostEmpty] = useState(false);
 
+  // Grab the subForumId from the URL parameters.
   let {subForumId} = useParams();
 
+  // Used to redirect the user to a different page, when needed.
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,7 +41,7 @@ export default function SubforumPage() {
       console.log(err);
     });
 
-    // Get subforum data for title and desc
+    // Get subforum data for title and description.
     Axios.get(`https://spartansocial-api.herokuapp.com/forums/subforum/${subForumId}`)
     .then (res => {
       setParentForum(res.data);
@@ -47,6 +50,7 @@ export default function SubforumPage() {
       console.log(err);
     })
 
+    // Check if the user is logged in.
     if(localStorage.getItem('user')) {
       setLogged(true);
     } else {
@@ -55,10 +59,13 @@ export default function SubforumPage() {
 
   }, [posts])
 
+  // Handles where the user is redirected based on their logged in status.
   function createPostPage() {
     if (isLogged) {
+      // User is redirected to the create post form page if they are logged in.
       navigate(`/${parentForum._id}/${subForumId}/post/create`);
     } else {
+      // User is redirected to the login page if they are not logged in.
       navigate(`/login`);
     }
   }

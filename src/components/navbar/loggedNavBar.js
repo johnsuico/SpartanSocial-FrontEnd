@@ -10,16 +10,22 @@ import Logo from '../SpartanSocialLogo.svg';
 
 export default function Landing({userID, active}) {
 
+  // React hooks to store date.
   const [user, setUser] = useState('');
 
+  // useNavigate function renamed to navigate.
+  // Used to redirect users.
   const navigate = useNavigate();
 
+  // Logout function, clears the user's data from the localStorage.
   function logout() {
     localStorage.clear();
     navigate(0);
   }
 
+
   useEffect(() => {
+    // API GET request to grab the user's data from the database.
     Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
     .then(res => {
       setUser(res.data);
@@ -48,6 +54,8 @@ export default function Landing({userID, active}) {
             `nav-link link active` :
             `nav-link link`
           }>Events</Link>
+          {/* Added profile page link to the user's profile page. */}
+          {/* Only visable when logged in. */}
           <Link to={"/profilepage/"+user._id} className={
             active === 'profile' ?
             `nav-link link active` :
