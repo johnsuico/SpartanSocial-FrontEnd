@@ -16,6 +16,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checked, setCheck] = useState(false);
+  const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
@@ -57,7 +58,8 @@ export default function Login() {
     })
     .catch(err => {
       // If there are any errors, print them on the console.
-      console.log(err);
+      console.log(err.response.status);
+      setError(true);
     })
   }
 
@@ -83,6 +85,13 @@ export default function Login() {
             <div className="account-header-container">
               <h1 className="account-header">Log in</h1>
               <p className="account-header-caption">Welcome back! Please enter in your details.</p>
+              {error ?
+                <div className="errorLogin">
+                  <p className="errorContent">Your username or password is incorrect.</p>
+                </div>
+              :
+                <div className="errorLogin"></div>
+              }
             </div>
 
             {/* Login form email field. */}

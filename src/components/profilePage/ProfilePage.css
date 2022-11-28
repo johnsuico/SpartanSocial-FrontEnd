@@ -132,3 +132,9 @@
 .previous-acitivity-module {
   margin-top: 20px;
 }
+
+/* Error handling */
+.errorLogin {
+  height: 20px;
+  color: var(--Downvote);
+}
