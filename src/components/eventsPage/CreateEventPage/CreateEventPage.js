@@ -15,6 +15,7 @@ export default function CreateEventPage() {
   const [eventDesc, setEventDesc] = useState('');
   const [eventDate, setEventDate] = useState('');
   const [eventCreator, setEventCreator] = useState('');
+  const [eventLocation, setEventLocation] = useState('');
 
   // Used to reroute to different pages.
   const navigate = useNavigate();
@@ -43,6 +44,9 @@ export default function CreateEventPage() {
       case "eventDate":
           setEventDate(value);
           break;
+      case "eventLocation":
+          setEventLocation(value);
+          break;
       default:
         // No default
     }
@@ -58,7 +62,8 @@ export default function CreateEventPage() {
       eventTitle,
       eventDesc,
       eventDate,
-      eventCreator
+      eventCreator,
+      eventLocation
     }
 
     // API POST request to the database with the newEvent information as the payload.
@@ -93,6 +98,12 @@ export default function CreateEventPage() {
               <label className="event-form-label">Event Date</label>
               <input type="date" name="eventDate" className="event-form-input event-date" onChange={handleChange} value={eventDate} required/>
             </div>
+          </div>
+
+          {/* The event location input field group */}
+          <div className="event-form-field">
+            <label className="event-form-label">Event Location</label>
+            <input type="text" name="eventLocation" className="event-form-input" onChange={handleChange} value={eventLocation}/>
           </div>
 
           {/* The event description input field group. */}
