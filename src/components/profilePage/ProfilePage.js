@@ -43,6 +43,7 @@ export default function ProfilePage() {
         setUser(res.data);
         setAdmin(res.data.admin);
         setMod(res.data.mod);
+        console.log(res.data);
       })
       .catch (err => {
         console.log(err);
@@ -76,7 +77,11 @@ export default function ProfilePage() {
             <div className="profilePage-default-pic"></div>
             <div className="profilePage-header-info">
               <div className="profilePage-header-top-container">
-                <h2 className="profilePage-name">{user.firstName} {user.lastName}</h2>
+                {user.useDisplayName ?
+                  <h2 className="profilePage-name">{user.userName}</h2>
+                :
+                  <h2 className="profilePage-name">{user.firstName} {user.lastName}</h2>
+                }
 
                 {/* Only show the edit profil button, if the user is on their own profile page. */}
                 {userID === currentUserID ?
