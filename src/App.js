@@ -19,6 +19,7 @@ import CreateEventPage from './components/eventsPage/CreateEventPage/CreateEvent
 import SpecificEvent from './components/eventsPage/SpecificEventPage/SpecificEventPage';
 import ProfilePage from './components/profilePage/ProfilePage';
 import EditProfile from './components/profilePage/editProfile/editProfile.js';
+import PageNotFound from './components/pageNotFound/pageNotFound';
 
 const router = createBrowserRouter ([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter ([
   {
     path: "/profilepage/:userID/edit",
     element: <EditProfile />
+  },
+  {
+    path: "*",
+    element: <PageNotFound />
   }
 ])
 
