@@ -1,6 +1,7 @@
 .post-link {
   text-decoration: none;
   color: black;
+  border: 1px solid red;
 }
 
 .post-container {
@@ -15,11 +16,12 @@
 
 .post-container:hover {
   border: 1px solid var(--SecDarkGray);
+  cursor: pointer;
 }
 
 .post-content {
   width: 90%;
-  margin: 20px;
+  margin: 20px auto;
   display: flex;
   flex-direction: column;
 }
@@ -28,6 +30,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.deletePost-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
 }
 
 .deletePost {
@@ -45,6 +53,7 @@
   margin-top: 3%;
   font-weight: bold;
   font-size: 22px;
+  width: 100%;
 }
 
 .postHeader-info-container {
@@ -62,6 +71,10 @@
 .postAuthor-container {
   display: flex;
   height: 100%;
+}
+
+.postAuthor-container:hover {
+  cursor: pointer;
 }
 
 .author-date-container {
@@ -117,6 +130,7 @@
   padding: 2px 7px;
   color: var(--GrayCaption);
   transition: all 0.5s ease-in-out;
+  z-index: 1;
 }
 
 .vote-container:hover {

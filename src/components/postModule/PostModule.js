@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 
 // Importing CSS
@@ -126,7 +126,7 @@ export default function PostPage(props) {
   }
 
   // Logic that handles the current state of upvoting and increments or decrements accordingly.
-  function upvoteClick() {
+  function upvoteClick(e) {
     if (!upvote && !downvote) {
       addUpvote();
     } else if (!upvote && downvote) {
@@ -138,7 +138,7 @@ export default function PostPage(props) {
   }
 
   // Logic that handles the current state of downvoting and increments or decrements accordingly.
-  function downvoteClick() {
+  function downvoteClick(e) {
     if (!downvote && !upvote) {
       addDownvote();
     } else if (!downvote && upvote) {
@@ -158,13 +158,22 @@ export default function PostPage(props) {
       .catch(err => console.log(err));
   }
 
+  function gotoPost() {
+    navigate(`/${parentForumId}/${subForumId}/${props.postID}`);
+  }
+
+  function gotoProfile(e) {
+    e.stopPropagation();
+    navigate(`/profilePage/${author._id}`);
+
+  }
+
+
   return (
-    <div className="post-container">
+    <div className="post-container" onClick={gotoPost}>
       <div className="post-content">
         <div className="post-content-header-title-container">
-          <Link to={`/${parentForumId}/${subForumId}/${props.postID}`} className="post-link">
-            <h2 className="postTitle">{props.postTitle}</h2>
-          </Link>
+          <h2 className="postTitle">{props.postTitle}</h2>
           {userID === author._id ?
             <div className="deletePost-container">
               <p className="deletePost" onClick={deletePost}>Delete Post</p>
@@ -174,37 +183,31 @@ export default function PostPage(props) {
           }
         </div>
           <div className="postHeader-info-container">
-            <div className="postAuthor-container">
-              <Link to={`/profilePage/${author._id}`} className="profileLink">
-                <img src={DefaultPicture} alt="Default Profile" />
-                <div className="author-date-container">
-                  {author.useDisplayName ?
-                    <p className="postAuthor profileLink">{author.userName}</p>
-                  :
-                    <p className="postAuthor profileLink">{author.firstName} {author.lastName}</p>
-                  }
-                  <p className="postDate">{postDate}</p>
-                </div>
-              </Link>
-            </div>
-            <Link to={`/${parentForumId}/${subForumId}/${props.postID}`} className="post-link">
-              <div className="category">
-                <Category category={props.postCategory} />
+            <div className="postAuthor-container" onClick={gotoProfile}>
+              <img src={DefaultPicture} alt="Default Profile" />
+              <div className="author-date-container">
+                {author.useDisplayName ?
+                  <p className="postAuthor profileLink">{author.userName}</p>
+                :
+                  <p className="postAuthor profileLink">{author.firstName} {author.lastName}</p>
+                }
+                <p className="postDate">{postDate}</p>
               </div>
-            </Link>
-          </div>
-          <Link to={`/${parentForumId}/${subForumId}/${props.postID}`} className="post-link">
-            <div className="postBody-container">
-              <p className="postBody">{props.postBody}</p>
             </div>
-          </Link>
+            <div className="category">
+              <Category category={props.postCategory} />
+            </div>
+          </div>
+          <div className="postBody-container">
+            <p className="postBody">{props.postBody}</p>
+          </div>
         <div className="postFooter-container">
           <div className="commentCounter-container">
             <IoChatbubbleSharp className="comment-icon" />
             <p className="comment-counter">{props.postCommentLength}</p>
           </div>
           <div className="voteCounter-container">
-            <div className={`vote-container ` + (upvote ? `upvote-active` : `upvote`)} onClick={upvoteClick}>
+            <div className={`vote-container ` + (upvote ? `upvote-active` : `upvote`)} onClick={upvoteClick} onMouseDown={e => e.preventPropagation}>
               <FaArrowUp className="upvote-arrow"/>
               <p className="vote-count">{upCount}</p>
             </div>
@@ -216,5 +219,6 @@ export default function PostPage(props) {
         </div>
       </div>
     </div>
+    
   )
 }
