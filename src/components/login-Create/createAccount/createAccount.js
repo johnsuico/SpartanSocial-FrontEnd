@@ -16,6 +16,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
+  const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
@@ -51,7 +52,8 @@ export default function Login() {
       navigate(`/createAccount/${res.data.newRegUser.user_id}/cp2`);
     })
     .catch (err => {
-      console.log(err);
+      console.log(err.response);
+      setError(true);
     })
 
   }
@@ -77,6 +79,13 @@ export default function Login() {
             <div className="account-header-container">
               <h1 className="account-header">Create an account</h1>
               <p className="account-header-caption">Welcome! Let's get started with creating your account.</p>
+              {error ?
+                <div className="errorLogin">
+                  <p className="errorLogin-caption">Email is already being used.</p>
+                </div>
+              :
+                <div className="errorLogin"></div>
+              }
             </div>
 
             <div className = "account-form-field">
