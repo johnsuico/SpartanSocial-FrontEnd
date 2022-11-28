@@ -152,7 +152,8 @@ export default function SpecificEvent() {
             :
               <p className="specificEvent-author">Event created by: {eventCreator.firstName} {eventCreator.lastName}</p>
             }
-            <p className="specificEvent-eventDate">Event Date: {eventDate}</p>
+            <p className="specificEvent-info">Event Date: {eventDate}</p>
+            <p className="specificEvent-info">Event Location: {event.eventLocation}</p>
           </div>
 
           <div className="specificEvent-desc-container">

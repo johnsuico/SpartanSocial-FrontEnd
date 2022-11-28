@@ -100,6 +100,7 @@ export default function EventsMainPage() {
                   eventDesc     = {event.eventDesc}
                   eventDate     = {event.eventDate}
                   eventCreator  = {event.eventCreator}
+                  eventLocation = {event.eventLocation}
                   eventID       = {event._id}
                   key           = {event._id}
                 />

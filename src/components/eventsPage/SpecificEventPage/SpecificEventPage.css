@@ -22,14 +22,18 @@
   color: var(--SecDarkGray);
   font-size: 14px;
   margin-top: 5px;
+  padding: 2px 0;
 }
 
-.specificEvent-eventDate {
-  border-bottom: 1px solid var(--SecLightGray);
-  padding-bottom: 10px;
-  margin-top: 10px;
+.specificEvent-info {
   font-size: 14px;
   color: var(--SecDarkGray);
+  padding: 2px 0;
+}
+
+.specificEvent-info:last-child {
+  border-bottom: 1px solid var(--SecLightGray);
+  padding-bottom: 10px;
 }
 
 .specificEvent-footer-container {
