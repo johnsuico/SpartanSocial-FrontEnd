@@ -28,51 +28,63 @@ const router = createBrowserRouter ([
   },
   {
     path: "/login",
-    element: <Login />
+    element: <Login />,
+    errorElement: <PageNotFound />
   },
   {
     path: "/createAccount",
-    element: <CreateAccount />
+    element: <CreateAccount />,
+    errorElement: <PageNotFound />
   },
   {
     path: "/createAccount/:id/cp2",
-    element: <CreateAccount2 />
+    element: <CreateAccount2 />,
+    errorElement: <PageNotFound />
   },
   {
     path: "/createAccount/:id/cp3",
-    element: <CreateAccount3 />
+    element: <CreateAccount3 />,
+    errorElement: <PageNotFound />
   },
   {
     path: "/:parentForumId/:subForumId",
-    element: <SubforumPage />
+    element: <SubforumPage />,
+    errorElement: <PageNotFound />
   },
   {
     path: "/:parentForumId/:subForumId/post/create",
-    element: <CreatePost />
+    element: <CreatePost />,
+    errorElement: <PageNotFound />
   },
   {
     path: "/:parentForumId/:subForumId/:postId",
-    element: <Post />
+    element: <Post />,
+    errorElement: <PageNotFound />
   },
   {
     path: "/events",
-    element: <EventsMainPage />
+    element: <EventsMainPage />,
+    errorElement: <PageNotFound />
   },
   {
     path: "/events/create",
-    element: <CreateEventPage />
+    element: <CreateEventPage />,
+    errorElement: <PageNotFound />
   },
   {
     path: "/events/:eventID/:eventCreatorID",
-    element: <SpecificEvent />
+    element: <SpecificEvent />,
+    errorElement: <PageNotFound />
   },
   {
     path: "/profilepage/:userID",
-    element: <ProfilePage />
+    element: <ProfilePage />,
+    errorElement: <PageNotFound />
   },
   {
     path: "/profilepage/:userID/edit",
-    element: <EditProfile />
+    element: <EditProfile />,
+    errorElement: <PageNotFound />
   },
   {
     path: "*",
