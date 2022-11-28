@@ -14,6 +14,9 @@ import PreviousEvents from './PreviousEvents/PreviousEvents';
 // Import icons
 import {FaCheckCircle} from 'react-icons/fa';
 
+// Import default picture
+import DefaultPicture from '../DefaultPicture.svg';
+
 export default function ProfilePage() {
 
   // Used to redirect to different pages.
@@ -73,7 +76,8 @@ export default function ProfilePage() {
 
           {/* Start profile page header */}
           <div className="profilePage-header">
-            <div className="profilePage-default-pic"></div>
+            {/* <div className="profilePage-default-pic"></div> */}
+            <img src={DefaultPicture} alt="Default Picture" className="profilePage-default-pic" />
             <div className="profilePage-header-info">
               <div className="profilePage-header-top-container">
                 {user.useDisplayName ?

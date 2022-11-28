@@ -19,10 +19,6 @@
 
 .profilePage-default-pic {
   height: 96px;
-  width: 108px;
-  border: 1px solid var(--SJSUBlue);
-  background-color: var(--ProfilePictureBlue);
-  border-radius: 10px;
 }
 
 .profilePage-header-info {

@@ -85,14 +85,6 @@
   font-size: 12px;
 }
 
-/* .default-profile-pic {
-  height: 64px;
-  width: 64px;
-  background-color: var(--ProfilePictureBlue);
-  border: 1px solid var(--BlueOutline);
-  border-radius: 10px;
-} */
-
 .postBody {
   font-size: 14px;
   line-height: 1.5;

@@ -176,7 +176,7 @@ export default function PostPage(props) {
           <div className="postHeader-info-container">
             <div className="postAuthor-container">
               <Link to={`/profilePage/${author._id}`} className="profileLink">
-                <img src={DefaultPicture} alt="Default Profile Picture" />
+                <img src={DefaultPicture} alt="Default Profile" />
                 <div className="author-date-container">
                   {author.useDisplayName ?
                     <p className="postAuthor profileLink">{author.userName}</p>
