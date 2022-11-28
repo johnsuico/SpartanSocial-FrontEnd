@@ -44,7 +44,10 @@ export default function editProfile() {
         setGender(res.data.gender);
         setBio(res.data.bio);
         setGradDate(new Date(res.data.gradDate).getUTCFullYear());
-        setBirthDate(new Date(res.data.birthDate).toLocaleDateString('en-CA', {timezone: 'UTC'}));
+
+        const birthDay = new Date(res.data.birthDate);
+        birthDay.setDate(birthDay.getDate() + 1);
+        setBirthDate(birthDay.toLocaleDateString('en-CA'));
       })
       .catch (err => {
         console.log(err);
