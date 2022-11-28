@@ -43,6 +43,8 @@ export default function editProfile() {
         setPronouns(res.data.pronouns);
         setGender(res.data.gender);
         setBio(res.data.bio);
+        setGradDate(new Date(res.data.gradDate).getUTCFullYear());
+        setBirthDate(new Date(res.data.birthDate).toLocaleDateString('en-CA', {timezone: 'UTC'}));
       })
       .catch (err => {
         console.log(err);
@@ -194,7 +196,7 @@ export default function editProfile() {
 
           <div className="editProfile-form-field">
             <label className="editProfile-form-label">Birthday:</label>
-            <input type="date" className="editProfile-form-input" onChange={handleChange} name="birthDate"/>
+            <input type="date" className="editProfile-form-input" onChange={handleChange} name="birthDate" value={birthDate}/>
           </div>
 
           <div className="editProfile-form-field">
