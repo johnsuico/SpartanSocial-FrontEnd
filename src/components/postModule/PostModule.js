@@ -9,6 +9,9 @@ import './PostModule.css';
 import { IoChatbubbleSharp } from "react-icons/io5";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
+// Importing default profile picture
+import DefaultPicture from '../DefaultPicture.svg';
+
 // Importing Category Components
 import Category from '../postCategories/Category';
 
@@ -172,16 +175,16 @@ export default function PostPage(props) {
         </div>
           <div className="postHeader-info-container">
             <div className="postAuthor-container">
-              <div className="default-profile-pic"></div>
               <Link to={`/profilePage/${author._id}`} className="profileLink">
-              <div className="author-date-container">
-                {author.useDisplayName ?
-                  <p className="postAuthor profileLink">{author.userName}</p>
-                :
-                  <p className="postAuthor profileLink">{author.firstName} {author.lastName}</p>
-                }
-                <p className="postDate">{postDate}</p>
-              </div>
+                <img src={DefaultPicture} alt="Default Profile Picture" />
+                <div className="author-date-container">
+                  {author.useDisplayName ?
+                    <p className="postAuthor profileLink">{author.userName}</p>
+                  :
+                    <p className="postAuthor profileLink">{author.firstName} {author.lastName}</p>
+                  }
+                  <p className="postDate">{postDate}</p>
+                </div>
               </Link>
             </div>
             <Link to={`/${parentForumId}/${subForumId}/${props.postID}`} className="post-link">
