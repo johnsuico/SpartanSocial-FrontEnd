@@ -115,7 +115,11 @@ export default function ProfilePage() {
 
           {/* Start profile page bio section */}
           <div className="profilePage-about-container">
-            <h3 className="profilePage-section-title">About {user.firstName} {user.lastName}</h3>
+            {user.useDisplayName ?
+              <h3 className="profilePage-section-title">About {user.userName}</h3>
+            :
+              <h3 className="profilePage-section-title">About {user.firstName} {user.lastName}</h3>
+            }
 
             <div className="profilePage-bio-container">
               <p className="profilePage-text">{user.bio}</p>
@@ -124,7 +128,7 @@ export default function ProfilePage() {
             <div className="profilePage-pronouns-container">
               <h3 className="profilePage-section-title">Pronouns: </h3>
               {user.pronouns ?
-                <p className="profilePage-pronouns">{user.pronouns}</p>
+                <p className="profilePage-text">{user.pronouns}</p>
               :
                 <p className="profilePage-pronouns">None specified</p>
               }
