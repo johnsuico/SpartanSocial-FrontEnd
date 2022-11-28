@@ -162,7 +162,11 @@ export default function EventComponent(props) {
           }
         
           <div className="eventAuthor-container">
-            <p className="eventAuthor-caption">Event posted by: {author.firstName} {author.lastName}</p>
+            {author.useDisplayName ?
+              <p className="eventAuthor-caption">Event posted by: {author.userName}</p>
+            :
+              <p className="eventAuthor-caption">Event posted by: {author.firstName} {author.lastName}</p>
+            }
           </div>
         </Link>
 

@@ -147,7 +147,11 @@ export default function SpecificEvent() {
                 null
               }
             </div>
-            <p className="specificEvent-author">Event created by: {eventCreator.firstName} {eventCreator.lastName}</p>
+            {eventCreator.useDisplayName ?
+              <p className="specificEvent-author">Event created by: {eventCreator.userName}</p>
+            :
+              <p className="specificEvent-author">Event created by: {eventCreator.firstName} {eventCreator.lastName}</p>
+            }
             <p className="specificEvent-eventDate">Event Date: {eventDate}</p>
           </div>
 
