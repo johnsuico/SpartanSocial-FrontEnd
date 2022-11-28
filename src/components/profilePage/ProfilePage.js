@@ -43,7 +43,6 @@ export default function ProfilePage() {
         setUser(res.data);
         setAdmin(res.data.admin);
         setMod(res.data.mod);
-        console.log(res.data);
       })
       .catch (err => {
         console.log(err);
