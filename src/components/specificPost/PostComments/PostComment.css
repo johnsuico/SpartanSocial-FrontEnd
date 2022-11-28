@@ -7,8 +7,6 @@
   justify-content: center;
 }
 
-
-
 .postComment-content-container {
   width: 90%;
   margin: 20px 0;
@@ -35,11 +33,7 @@
 }
 
 .default-profile-pic-small {
-  border: 1px solid var(--BlueOutline);
-  background-color: var(--ProfilePictureBlue);
-  border-radius: 10px;
   height: 48px;
-  width: 48px;
 }
 
 .profileLink {

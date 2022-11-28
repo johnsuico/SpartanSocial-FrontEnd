@@ -8,6 +8,9 @@ import './PostComment.css';
 // Importing icons
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
+// Import default profile picture
+import DefaultPicture from '../../DefaultPicture.svg';
+
 export default function PostComment(props) {
 
   // Grab stored user in local storage.
@@ -144,7 +147,8 @@ export default function PostComment(props) {
       <div className="postComment-content-container">
         <div className="comment-header-container">
           <div className="comment-header-author-container">
-            <div className="default-profile-pic-small"></div>
+            {/* <div className="default-profile-pic-small"></div> */}
+            <img src={DefaultPicture} alt="Default Profile" className="default-profile-pic-small" />
             <Link to={`/profilepage/${author._id}`} className="profileLink">
               <div className="author-date-container">
                 {author.useDisplayName ?

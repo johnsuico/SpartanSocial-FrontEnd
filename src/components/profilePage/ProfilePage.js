@@ -77,7 +77,7 @@ export default function ProfilePage() {
           {/* Start profile page header */}
           <div className="profilePage-header">
             {/* <div className="profilePage-default-pic"></div> */}
-            <img src={DefaultPicture} alt="Default Picture" className="profilePage-default-pic" />
+            <img src={DefaultPicture} alt="Default Profile" className="profilePage-default-pic" />
             <div className="profilePage-header-info">
               <div className="profilePage-header-top-container">
                 {user.useDisplayName ?
