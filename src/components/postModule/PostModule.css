@@ -33,9 +33,7 @@
 }
 
 .deletePost-container {
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
+  width: 90px;
 }
 
 .deletePost {
@@ -50,7 +48,6 @@
 }
 
 .postTitle {
-  margin-top: 3%;
   font-weight: bold;
   font-size: 22px;
   width: 100%;
