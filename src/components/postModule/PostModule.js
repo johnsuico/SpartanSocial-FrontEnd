@@ -152,7 +152,8 @@ export default function PostPage(props) {
   }
 
   // Function delete a post from the database.
-  function deletePost() {
+  function deletePost(e) {
+    e.stopPropagation();
     Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}`)
       .then (() => {
        console.log('Deleted Post');
