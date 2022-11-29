@@ -157,6 +157,7 @@ export default function PostPage(props) {
     Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}`)
       .then (() => {
        console.log('Deleted Post');
+       navigate(`/${parentForumId}/${subForumId}`);
       })
       .catch(err => console.log(err));
   }
