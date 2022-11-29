@@ -127,6 +127,7 @@ export default function PostPage(props) {
 
   // Logic that handles the current state of upvoting and increments or decrements accordingly.
   function upvoteClick(e) {
+    e.stopPropagation();
     if (!upvote && !downvote) {
       addUpvote();
     } else if (!upvote && downvote) {
@@ -139,6 +140,7 @@ export default function PostPage(props) {
 
   // Logic that handles the current state of downvoting and increments or decrements accordingly.
   function downvoteClick(e) {
+    e.stopPropagation();
     if (!downvote && !upvote) {
       addDownvote();
     } else if (!downvote && upvote) {
