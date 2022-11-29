@@ -125,7 +125,11 @@ export default function ProfilePage() {
             }
 
             <div className="profilePage-bio-container">
-              <p className="profilePage-text">{user.bio}</p>
+              {user.bio ? 
+                <p className="profilePage-text">{user.bio}</p>
+              :
+                <p className="profilePage-text">No bio</p>
+              }
             </div>
 
             <div className="profilePage-pronouns-container">
@@ -133,7 +137,7 @@ export default function ProfilePage() {
               {user.pronouns ?
                 <p className="profilePage-text">{user.pronouns}</p>
               :
-                <p className="profilePage-pronouns">None specified</p>
+                <p className="profilePage-text">None specified</p>
               }
             </div>
           </div>
