@@ -8,6 +8,7 @@ import './PostModule.css';
 // Importing Icons
 import { IoChatbubbleSharp } from "react-icons/io5";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import {FaCheckCircle} from 'react-icons/fa';
 
 // Importing default profile picture
 import DefaultPicture from '../DefaultPicture.svg';
@@ -24,6 +25,8 @@ export default function PostPage(props) {
   const [author, setAuthor] = useState({});
   const [userID, setUserID] = useState('');
   const [isLogged, setLogged] = useState(false);
+  const [isAdmin, setAdmin] = useState(false);
+  const [isMod, setMod] = useState(false);
 
   // Used to redirect users.
   const navigate = useNavigate();
@@ -45,6 +48,8 @@ export default function PostPage(props) {
     Axios.get(`https://spartansocial-api.herokuapp.com/users/${props.postAuthor}`)
     .then (res => {
       setAuthor(res.data);
+      setAdmin(res.data.admin);
+      setMod(res.data.moderator);
     })
     .catch (err => {
       console.log(err);
@@ -195,6 +200,23 @@ export default function PostPage(props) {
                 :
                   <p className="postAuthor profileLink">{author.firstName} {author.lastName}</p>
                 }
+
+                {/* Logic to show if a user is SpartanSocial Admin or Moderator. */}
+                {isAdmin ? 
+                  <div className="adminCheck-container">
+                    <FaCheckCircle className="adminCheck" />
+                    <p className="adminCheck-caption">Admin</p>
+                  </div>
+                :
+                  isMod ?
+                  <div className="modCheck-container">
+                    <FaCheckCircle className="adminCheck" />
+                    <p className="adminCheck-caption">Mod</p>
+                  </div>
+                  :
+                  null
+                }
+                
                 <p className="postDate">{postDate}</p>
               </div>
             </div>
