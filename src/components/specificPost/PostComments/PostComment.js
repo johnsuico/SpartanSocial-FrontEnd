@@ -152,7 +152,7 @@ export default function PostComment(props) {
             <Link to={`/profilepage/${author._id}`} className="profileLink">
               <div className="author-date-container">
                 {author.useDisplayName ?
-                <p className="commentAuthor">{author.displayName}</p>
+                <p className="commentAuthor">{author.userName}</p>
                 :
                   <p className="commentAuthor">{author.firstName} {author.lastName}</p>              
                 }
