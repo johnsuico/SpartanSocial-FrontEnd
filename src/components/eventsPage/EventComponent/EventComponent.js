@@ -140,7 +140,8 @@ export default function EventComponent(props) {
 
   // Grabs the date for the event and parses it so that it can be displayed properly in the browser.
   const newDate = new Date(props.eventDate);
-  const eventDate = newDate.toDateString();
+  newDate.setDate(newDate.getDate()+1);
+  const eventDate = newDate.toLocaleDateString();
 
   return (
     <div className="eventComponent">
