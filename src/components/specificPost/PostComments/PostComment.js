@@ -65,7 +65,7 @@ export default function PostComment(props) {
           })
           .catch(err => console.log(err));
       }
-  }, [])
+  }, [author])
 
   // Adds an upvote to the comment.
   function addCommentUpvote() {
