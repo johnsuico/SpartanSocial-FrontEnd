@@ -156,7 +156,7 @@ export default function EventComponent(props) {
           {/* If less than 200 characters, then display the full event description. */}
           {/* This was done so that certain events do not have more text content than others in the event main page, which is more like a preview. */}
           {eventDescLength >= 200 ?
-            <p className="event-desc">{props.eventDesc.substring(0, 200)}...</p>
+            <p className="event-desc">{props.eventDesc.substring(0, 100)}...</p>
           :
             <p className="event-desc">{props.eventDesc}</p>
           }
