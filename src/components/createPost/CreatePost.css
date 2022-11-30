@@ -86,3 +86,16 @@
   cursor: pointer; 
   transform: scale(1.03);
 }
+
+/* Responsive Design */
+@media (max-width: 1360px) {
+  .createPost-container-form {
+    width: 70%;
+  }
+}
+
+@media (max-width: 660px) {
+  .createPost-container-form {
+    width: 80%;
+  }
+}

@@ -56,3 +56,10 @@
   display: flex;
   justify-content: flex-end;
 }
+
+/* Responsive Design */
+@media (max-width: 830px) {
+  .specific-post-page {
+    width: 80%;
+  }
+}

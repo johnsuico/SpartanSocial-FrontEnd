@@ -90,3 +90,19 @@
   cursor: pointer;
   transform: scale(1.05);
 }
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .createEvent-container-form {
+    width: 80%;
+  }
+
+  .event-form-header-container {
+    flex-direction: column;
+  }
+
+  .event-form-field:nth-child(2) {
+    margin: 0;
+    padding: 0;
+  }
+}

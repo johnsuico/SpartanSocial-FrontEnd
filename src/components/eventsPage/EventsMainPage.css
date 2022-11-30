@@ -80,3 +80,27 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+/* Responsive Design */
+@media (max-width: 1420px) {
+  .eventComponent-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 820px) {
+  .postEvent-content-container {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .postEvent-caption {
+    display: none;
+  }
+
+  .postEvent-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
