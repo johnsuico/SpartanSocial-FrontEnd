@@ -134,3 +134,38 @@
   height: 20px;
   color: var(--Downvote);
 }
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .profilePage-container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 800px) {
+
+  .previous-activity-selector {
+    flex-direction: column;
+  }
+
+  .previous-activity-button-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .profilePage-name {
+    font-size: 22px;
+  }
+
+  .profilePage-header-top-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 460px) {
+  .profilePage-name {
+    font-size: 16px;
+  }
+}

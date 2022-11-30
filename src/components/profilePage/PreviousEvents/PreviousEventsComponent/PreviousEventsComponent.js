@@ -21,7 +21,11 @@ export default function PreviousEventComponent(props) {
 
           <div className="previousEvent-content">
             <h2 className="previousEvent-title">Event Description:</h2>
-            <p className="previousEvent-desc">{props.eventDesc}</p>
+            {props.eventDesc.length >= 100 ?
+              <p className="previousEvent-desc">{props.eventDesc.substring(0, 100)}...</p>
+            :
+              <p className="previousEvent-desc">{props.eventDesc}</p>
+            }
           </div>
         </div>
       </Link>
