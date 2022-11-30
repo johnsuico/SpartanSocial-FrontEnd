@@ -149,10 +149,26 @@
  .subforums {
   width: 70%;
  }
+
+ .subforum-page-container {
+  width: 70%;
+ }
+
+ .subForumTitle {
+  font-size: 24px;
+ }
+
+ .subForumDesc {
+  font-size: 16px;
+ }
 }
 
 @media (max-width: 800px) {
   .subforums {
+    width: 80%;
+  }
+
+  .subforum-page-container {
     width: 80%;
   }
 }

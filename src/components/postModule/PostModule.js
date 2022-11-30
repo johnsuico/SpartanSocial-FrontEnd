@@ -220,7 +220,7 @@ export default function PostPage(props) {
                 <p className="postDate">{postDate}</p>
               </div>
             </div>
-            <div className="category">
+            <div className="post-category">
               <Category category={props.postCategory} />
             </div>
           </div>
