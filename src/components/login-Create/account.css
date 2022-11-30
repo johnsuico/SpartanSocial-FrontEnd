@@ -114,3 +114,99 @@
 .right-content {
   margin: auto;
 }
+
+/* Responsive Design */
+/* Start of Login Page */
+@media (max-width: 912px) {
+  .right-login-container {
+    display: none;
+  }
+
+  .half-container {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .account-form {
+    width: 60%;
+  }
+}
+
+@media (max-width: 500px) {
+  .account-form {
+    width: 80%;
+  }
+}
+
+@media (max-width: 300px) {
+  .left-logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .account-form {
+    width: 90%;
+  }
+
+  .account-header {
+    font-size: 30px;
+  }
+
+  .account-header-caption {
+    font-size: 14px;
+  }
+
+  .form-label {
+    font-size: 16px;
+  }
+
+  .login-extra-container {
+    flex-direction: column;
+  }
+
+  .account-check-container {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .forgot-pass-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .submit-btn {
+    font-size: 18px;
+    height: 40px;
+  }
+
+  .account-extra-container {
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+  }
+
+  .account-link {
+    margin: auto;
+  }
+}
+/* End Login Page */
+
+/* Start Account Creation Responsive Design */
+@media (max-width: 1360px) {
+  .right-login-container {
+    width: 100%;
+  }
+
+  .account-form {
+    /* border: 1px solid red; */
+    width: 80%;
+  }
+
+  .account-header {
+    font-size: 30px;
+  }
+}
+/* End Account Creation Responsive Design */
