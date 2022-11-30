@@ -143,3 +143,16 @@
 .noPost-container h2 {
   font-weight: 400;
 }
+
+/* Responsive Design */
+@media (max-width: 1360px) {
+ .subforums {
+  width: 70%;
+ }
+}
+
+@media (max-width: 800px) {
+  .subforums {
+    width: 80%;
+  }
+}

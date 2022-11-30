@@ -73,11 +73,26 @@
 }
 
 @media (max-width: 650px) {
-  .forum-category-container {
-    width: 90%;
-  }
-
   .category-selectors {
     margin: 0;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .forum-category-container {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .category-caption {
+    margin: auto;
+  }
+
+  .forum-category {
+    height: 30px;
+  }
+
+  .active-cat {
+    height: 30px;
   }
 }

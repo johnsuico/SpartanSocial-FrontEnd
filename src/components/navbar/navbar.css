@@ -86,3 +86,63 @@
   color: var(--SJSUBlue);
   border-bottom: 2px solid var(--SJSUBlue);
 }
+
+/* Responsive Navbar */
+@media (max-width: 912px) {
+  .user-welcome {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+
+  .nav-logo {
+    height: 80%;
+  }
+
+  .CTA-btn {
+    display: none;
+  }
+
+  .user-welcome {
+    display: none;
+  }
+}
+
+@media (max-width: 686px) {
+  .nav-link {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 550px) {
+  .nav-section:nth-child(1) {
+    display: none;
+  }
+
+  .navbar-container {
+    width: 90%;
+    height: 40px;
+    margin: auto;
+    margin-right: 7.5%;
+  }
+}
+
+@media (max-width: 450px) {
+
+  .nav-section:nth-child(2) {
+    flex: 4;
+  }
+
+  .nav-section:nth-child(3) {
+    justify-content: flex-end;
+  }
+
+  .nav-logo {
+    display: none;
+  }
+
+  .nav-section {
+    width: 20%;
+  }
+}

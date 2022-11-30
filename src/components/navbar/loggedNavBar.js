@@ -64,7 +64,7 @@ export default function Landing({userID, active}) {
         </div>
         <div className="nav-section">
           <p className="user-welcome">Welcome, {user.firstName} {user.lastName}</p>
-          <Link to="/" className="CTA-btn" onClick={logout}>Log out</Link>
+          <Link to="/" className="nav-link link" onClick={logout}>Log out</Link>
         </div>
       </div>
     </div>
