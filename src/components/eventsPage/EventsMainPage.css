@@ -83,8 +83,19 @@
 
 /* Responsive Design */
 @media (max-width: 1420px) {
+
   .eventComponent-container {
     flex-direction: column;
+  }
+
+  .eventMainPageBanner-header {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .eventMainPage-container {
+    width: 60%;
   }
 }
 
