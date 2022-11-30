@@ -88,3 +88,10 @@
 .editProfile-submit-btn:hover {
   cursor: pointer;
 }
+
+/* Responsive Design */
+@media (max-width: 1300px) {
+  .editProfile-container {
+    width: 70%;
+  }
+}
