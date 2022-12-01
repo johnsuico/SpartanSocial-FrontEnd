@@ -209,7 +209,7 @@ export default function editProfile() {
 
           <div className="editProfile-form-field">
             <label className="editProfile-form-label">Gender</label>
-            <input type="text" className="editProfile-form-input" value={gender} onChange={handleChange}/>
+            <input type="text" className="editProfile-form-input" value={gender} onChange={handleChange} name="gender"/>
           </div>
 
           <div className="editProfile-form-field">
