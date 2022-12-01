@@ -17,10 +17,6 @@ import DefaultPicture from '../DefaultPicture.svg';
 import Category from '../postCategories/Category';
 
 export default function PostPage(props) {
-
-  // Grab stored user in local storage.
-  let userInStorage = JSON.parse(localStorage.getItem('user'));
-
   // Variables to store data.
   const [author, setAuthor] = useState({});
   const [userID, setUserID] = useState('');
@@ -40,7 +36,7 @@ export default function PostPage(props) {
   const [downCount, setDowncount] = useState(props.postDownvote);
 
   // Varible to hold the parentForumID
-  let {parentForumId, subForumId} = useParams();
+  let {parentForumId, subForumId, postId} = useParams();
 
   useEffect(() => {
 
@@ -58,21 +54,25 @@ export default function PostPage(props) {
     // Grab user info if logged in
     if(localStorage.getItem('user')) {
 
+      // Grab stored user in local storage.
+      const userInStorage = JSON.parse(localStorage.getItem('user'));
       setUserID(userInStorage.user_id);
+      const userTemp = userInStorage.user_id;
+
       setLogged(true);
       
       // Grab user data.
-      Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
+      Axios.get(`https://spartansocial-api.herokuapp.com/users/${userTemp}`)
         .then (res => {
           // Check if the post has already been upvoted by user.
-          if (res.data[0].upvotedPosts.includes(props.postID)) {
+          if (res.data.upvotedPosts.includes(props.postID)) {
             setUpvote(true);
           } else {
             setUpvote(false);
           }
-          
+
           // Check if the post has already been downvoted by user.
-          if (res.data[0].downvotedPosts.includes(props.postID)) {
+          if (res.data.downvotedPosts.includes(props.postID)) {
             setDownvote(true);
           } else {
             setDownvote(false);
@@ -161,8 +161,9 @@ export default function PostPage(props) {
     e.stopPropagation();
     Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}`)
       .then (() => {
-       console.log('Deleted Post');
-       navigate(`/${parentForumId}/${subForumId}`);
+        if (postId) {
+          navigate(`/${parentForumId}/${subForumId}`);
+        }
       })
       .catch(err => console.log(err));
   }
