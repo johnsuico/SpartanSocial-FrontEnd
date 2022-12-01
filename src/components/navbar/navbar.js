@@ -22,7 +22,7 @@ export default function Navbar(props) {
   }, [])
 
   // If the user is logged in, show the navbar version with extra information.
-  if (isLogged) return <LoggedNavbar userID={user.user_id} active={props.active}/>
+  if (isLogged) return <LoggedNavbar userID={user.user_id} active={props.active} firstName={user.firstName} lastName={user.lastName}/>
   // If NOT logged in, show the navbar that has less information (profile page, log out button).
   else return <UnloggedNavbar active={props.active}/>
 }

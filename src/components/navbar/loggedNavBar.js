@@ -8,7 +8,7 @@ import './navbar.css';
 // Import SVGs
 import Logo from '../SpartanSocialLogo.svg';
 
-export default function Landing({userID, active}) {
+export default function Landing(props) {
 
   // React hooks to store date.
   const [user, setUser] = useState('');
@@ -26,14 +26,14 @@ export default function Landing({userID, active}) {
 
   useEffect(() => {
     // API GET request to grab the user's data from the database.
-    Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
+    Axios.get(`https://spartansocial-api.herokuapp.com/users/${props.userID}`)
     .then(res => {
       setUser(res.data);
     })
     .catch(err => {
       console.log(err);
     })
-  }, [])
+  }, [user])
 
   return (
     <div className="navbar">
@@ -45,25 +45,25 @@ export default function Landing({userID, active}) {
         </div>
         <div className="nav-section">
           <Link to="/" className={
-            active === 'forums' ?
+            props.active === 'forums' ?
             `nav-link link active` :
             `nav-link link`
           }>Forums</Link>
           <Link to="/events" className={
-            active === 'events' ?
+            props.active === 'events' ?
             `nav-link link active` :
             `nav-link link`
           }>Events</Link>
           {/* Added profile page link to the user's profile page. */}
           {/* Only visable when logged in. */}
           <Link to={"/profilepage/"+user._id} className={
-            active === 'profile' ?
+            props.active === 'profile' ?
             `nav-link link active` :
             `nav-link link`
           }>Profile</Link>
         </div>
         <div className="nav-section">
-          <p className="user-welcome">Welcome, {user.firstName} {user.lastName}</p>
+          <p className="user-welcome">Welcome, {props.firstName} {props.lastName}</p>
           <Link to="/" className="nav-link link" onClick={logout}>Log out</Link>
         </div>
       </div>
