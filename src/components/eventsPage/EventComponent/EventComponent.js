@@ -27,9 +27,10 @@ export default function EventComponent(props) {
       const userInStorage = JSON.parse(localStorage.getItem('user'));
       // Grab the logged in user's ID and place it into the userID hook.
       setUserID(userInStorage.user_id);
+      const userIDTemp = userInStorage.user_id;
 
       // API GET request to get account information of the logged in user.
-      Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
+      Axios.get(`https://spartansocial-api.herokuapp.com/users/${userIDTemp}`)
         .then (res => {
 
           // IF statement used to check if the data has loaded.
