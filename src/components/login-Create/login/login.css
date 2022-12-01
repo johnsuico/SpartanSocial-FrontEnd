@@ -45,3 +45,7 @@
 .right-content-header {
   padding-bottom: 5%;
 }
+
+.submit-btn:hover{
+  cursor:pointer;
+}
