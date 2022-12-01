@@ -50,3 +50,7 @@
 body {
   background-color: var(--MainBackground);
 }
+
+body > iframe {
+  display: none;
+}
