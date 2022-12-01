@@ -1,36 +1,29 @@
 <img src="./SpartanSocialLogo.png" alt="Spartan Social Logo" align="center">
 
-<h1 align="center">SJSU CmpE 195F Senior Project</h1>
+<h3 align="center">SJSU CmpE 195F Senior Project</h3>
 
-<h2>Features</h2>
+## Purpose
+The goal of this project was to create a website that new SJSU can turn to when they have questions about the campus or want to create new connections with other students.
 
-<ul>
-  <li>Account System</li>
-    <ul>
-      <li>Account Creation</li>
-      <li>Account Login</li>
-    </ul>
-  <li>Forum System</li>
-    <ul>
-      <li>Main forums</li>
-      <li>Subforums</li>
-      <li>Forum posts - Create and delete</li>
-      <li>Forum comments - Create and delete</li>
-      <li>Voting system (upvote and downvote)</li>
-    </ul>
-  <li>Event System</li>
-    <ul>
-      <li>Event creation and deletion</li>
-    </ul>
-  <li>Profile Page</li>
-    <ul>
-      <li>Displays chosen user information</li>
-      <li>Information is editable</li>
-      <li>Can see past user activity activity</li>
-    </ul>
-</ul>
+## Features
 
-<h2>Local Setup</h2>
+- Account System
+  - Account creation
+  - Account login
+- Forum System
+  - Main forums
+  - Subforums
+  - Forum psots - Create and delete
+  - Forum comments - Create and delete
+  - Voting system - Upvote / Downvote
+- Event System
+  - Event creation and deletion
+- Profile Page
+  - Display user information
+  - Information is editable by the user
+  - Can see past user activity
+
+## Local setup
 
 1. Download <a href="https://nodejs.org/en/download/" target="_blank">Node.js</a>
 2. Clone the repo
