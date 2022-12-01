@@ -63,6 +63,7 @@ export default function Login() {
     // API POST request to send the data to the database to update the user's data.
     Axios.post(`https://spartansocial-api.herokuapp.com/users/${id}/register/cp3`, updateAccountInfo)
     .then(res => {
+      localStorage.setItem('user', JSON.stringify(res.data.user))
       navigate(`/`);
     })
     .catch (err => {
@@ -125,7 +126,7 @@ export default function Login() {
 
             <div className="account-form-field">
               <label className="form-label">Short bio</label>
-              <textarea id="" cols="30" rows="10" className="opt-input-field bio" onChange={bioChange} value={bio} placeholder="Tell us about yourself in 150 characters or less." maxlength="150"></textarea>
+              <textarea id="" cols="30" rows="10" className="opt-input-field bio" onChange={bioChange} value={bio} placeholder="Tell us about yourself in 150 characters or less." maxLength="150"></textarea>
             </div>
 
             <button className="submit-btn" type="submit">Create account</button>
