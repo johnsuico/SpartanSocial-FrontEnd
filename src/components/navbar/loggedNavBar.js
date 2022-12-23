@@ -62,7 +62,7 @@ export default function Landing(props) {
           }>Profile</Link>
         </div>
         <div className="nav-section">
-          <p className="user-welcome">Welcome, {props.firstName} {props.lastName}</p>
+          <p className="user-welcome">Welcome, {user.firstName} {user.lastName}</p>
           <Link to="/" className="nav-link link" onClick={logout}>Log out</Link>
         </div>
       </div>
