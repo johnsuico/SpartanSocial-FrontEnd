@@ -5,6 +5,8 @@
 ## Purpose
 The goal of this project was to create a website that new SJSU can turn to when they have questions about the campus or want to create new connections with other students.
 
+[SpartanSocial API Repo](https://github.com/johnsuico/SpartanSocial-API)
+
 ## Features
 
 - Account System
