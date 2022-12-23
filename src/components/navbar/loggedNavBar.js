@@ -12,6 +12,10 @@ export default function Landing(props) {
 
   // React hooks to store date.
   const [user, setUser] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [userName, setUserName] = useState('');
+  const [useUserName, setUseUserName] = useState(false);
 
   // useNavigate function renamed to navigate.
   // Used to redirect users.
@@ -28,11 +32,16 @@ export default function Landing(props) {
     Axios.get(process.env.REACT_APP_API_BASE_URL+`users/${props.userID}`)
     .then(res => {
       setUser(res.data);
+      setFirstName(res.data.firstName);
+      setLastName(res.data.lastName);
+      setUserName(res.data.userName);
+      setUseUserName(res.data.useDisplayName);
     })
     .catch(err => {
       console.log(err);
     })
-  }, [user])
+
+  }, [firstName, lastName, userName, useUserName])
 
   return (
     <div className="navbar">
@@ -62,7 +71,12 @@ export default function Landing(props) {
           }>Profile</Link>
         </div>
         <div className="nav-section">
-          <p className="user-welcome">Welcome, {user.firstName} {user.lastName}</p>
+          {
+            useUserName ?
+              <p className="user-welcome">Welcome, {userName}</p>
+            :
+              <p className="user-welcome">Welcome, {firstName} {lastName}</p>
+          }
           <Link to="/" className="nav-link link" onClick={logout}>Log out</Link>
         </div>
       </div>
