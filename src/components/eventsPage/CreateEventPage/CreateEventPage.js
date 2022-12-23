@@ -67,7 +67,7 @@ export default function CreateEventPage() {
     }
 
     // API POST request to the database with the newEvent information as the payload.
-    Axios.post(`https://spartansocial-api.herokuapp.com/events/`, newEvent)
+    Axios.post(process.env.REACT_APP_API_BASE_URL+`events`, newEvent)
       // Go back to the event page if the event was created successfully.
       .then(navigate(`/events`))
       // Print to the console, if there was a problem with creating an event.

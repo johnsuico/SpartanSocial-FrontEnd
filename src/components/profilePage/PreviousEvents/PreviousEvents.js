@@ -15,7 +15,7 @@ export default function PreviousEvents(props) {
 
   useEffect(() => {
     // Grab all of the events that the user has created.
-    Axios.get(`https://spartansocial-api.herokuapp.com/users/${props.userID}/events`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`users/${props.userID}/events`)
       .then (res => {
         setEvents(res.data);
       })

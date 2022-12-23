@@ -33,7 +33,7 @@ export default function EventsMainPage() {
     }
 
     // API GET request to fetch all the events in the database.
-    Axios.get(`https://spartansocial-api.herokuapp.com/events`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`events`)
       .then(res => {
         // Store the data in the events hook.
         setEvents(res.data);

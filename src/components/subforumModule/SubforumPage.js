@@ -28,7 +28,7 @@ export default function SubforumPage() {
 
   useEffect(() => {
     // Get all subforum posts
-    Axios.get(`https://spartansocial-api.herokuapp.com/forums/subForum/${subForumId}/post`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`forums/subForum/${subForumId}/post`)
     .then (res => {
       if (res.data.length === 0) {
         setPostEmpty(true);
@@ -42,7 +42,7 @@ export default function SubforumPage() {
     });
 
     // Get subforum data for title and description.
-    Axios.get(`https://spartansocial-api.herokuapp.com/forums/subforum/${subForumId}`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`forums/subforum/${subForumId}`)
     .then (res => {
       setParentForum(res.data);
     })

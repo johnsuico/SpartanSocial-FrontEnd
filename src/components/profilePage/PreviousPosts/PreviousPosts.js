@@ -14,7 +14,7 @@ export default function PreviousPosts(props) {
 
   useEffect(() => {
     // Grab the posts from a specific user.
-    Axios.get(`https://spartansocial-api.herokuapp.com/users/${props.userID}/posts`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`users/${props.userID}/posts`)
       .then (res => {
         setPosts(res.data);
       })

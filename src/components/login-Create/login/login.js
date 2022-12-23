@@ -48,7 +48,7 @@ export default function Login() {
     }
 
     // API POST request to the API to create a new user and store their data in the database.
-    Axios.post("https://spartansocial-api.herokuapp.com/users/auth", user)
+    Axios.post(process.env.REACT_APP_API_BASE_URL+`users/auth`, user)
     .then(res => {
       // If successful, take the response data and store in the browser's local storage so that we can check if the user is logged in or not.
       localStorage.setItem('user', JSON.stringify(res.data.user));

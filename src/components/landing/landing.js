@@ -18,7 +18,7 @@ export default function Landing() {
 
   useEffect(() => {
     // API GET request to fetch all of the main forum IDs.
-    Axios.get(`https://spartansocial-api.herokuapp.com/forums/mainForum/`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`forums/mainForum`)
     .then (res => {
       setGeneral(res.data[0]._id);
       setSJSU(res.data[1]._id);

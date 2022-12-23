@@ -14,7 +14,7 @@ export default function PreviousComments(props) {
 
   useEffect(() => {
     // Grab all the comments that the user has created.
-    Axios.get(`https://spartansocial-api.herokuapp.com/users/${props.userID}/comments`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`users/${props.userID}/comments`)
       .then (res => {
         setComments(res.data);
       })

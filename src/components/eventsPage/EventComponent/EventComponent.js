@@ -30,7 +30,7 @@ export default function EventComponent(props) {
       const userIDTemp = userInStorage.user_id;
 
       // API GET request to get account information of the logged in user.
-      Axios.get(`https://spartansocial-api.herokuapp.com/users/${userIDTemp}`)
+      Axios.get(process.env.REACT_APP_API_BASE_URL+`users/${userIDTemp}`)
         .then (res => {
 
           // IF statement used to check if the data has loaded.
@@ -61,7 +61,7 @@ export default function EventComponent(props) {
     }
 
     // API GET request to grab the event creator's details.
-    Axios.get(`https://spartansocial-api.herokuapp.com/users/${props.eventCreator}`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`users/${props.eventCreator}`)
       .then(res => {
         // Set the author hook to the data from the database.
         setAuthor(res.data);
@@ -76,25 +76,25 @@ export default function EventComponent(props) {
 
   // Function that makes an API POST request to tell the database the current logged in user is going to the event.
   function addGoing() {
-    Axios.post(`https://spartansocial-api.herokuapp.com/events/${props.eventID}/going`, {userID});
+    Axios.post(process.env.REACT_APP_API_BASE_URL+`events/${props.eventID}/going`, {userID});
     setGoing(true);
   }
 
   // Function that makes an API DELETE request to tell the database the current logged in user wishes to remove their going status.
   function removeGoing() {
-    Axios.delete(`https://spartansocial-api.herokuapp.com/events/${props.eventID}/going`, {data: {userID}});
+    Axios.delete(process.env.REACT_APP_API_BASE_URL+`evnets/${props.eventID}/going`, {data: {userID}});
     setGoing(false);
   }
 
   // API POST request to change the current user's event status to not going.
   function addNotGoing() {
-    Axios.post(`https://spartansocial-api.herokuapp.com/events/${props.eventID}/notGoing`, {userID})
+    Axios.post(process.env.REACT_APP_API_BASE_URL+`events/${props.eventID}/notGoing`, {userID});
     setNotGoing(true);
   }
 
   // API DELETE request to remove the current user's not going event status.
   function removeNotGoing() {
-    Axios.delete(`https://spartansocial-api.herokuapp.com/events/${props.eventID}/notGoing`, {data: {userID}});
+    Axios.delete(process.env.REACT_APP_API_BASE_URL+`events/${props.eventID}/notGoing`, {data: {userID}});
     setNotGoing(false);
   }
 

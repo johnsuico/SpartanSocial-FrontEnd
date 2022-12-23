@@ -31,7 +31,7 @@ export default function editProfile() {
 
   useEffect(() => {
     // Grab the user's data to be modified.
-    Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`users/${userID}`)
       .then (res => {
         setFirstName(res.data.firstName);
         setLastName(res.data.lastName);
@@ -126,12 +126,12 @@ export default function editProfile() {
     }
 
     // API POST request for the first JSON.
-    Axios.post(`https://spartansocial-api.herokuapp.com/users/${userID}/register/cp2`, updateAccountInfoOne)
+    Axios.post(process.env.REACT_APP_API_BASE_URL+`users/${userID}/register/cp2`, updateAccountInfoOne)
       .then (res => console.log(res.data))
       .catch (err => console.log(err));
 
     // API POST request for the second JSON.
-    Axios.post(`https://spartansocial-api.herokuapp.com/users/${userID}/register/cp3`, updateAccountInfoTwo)
+    Axios.post(process.env.REACT_APP_API_BASE_URL+`users/${userID}/regiister/cp3`, updateAccountInfoTwo)
       .then (res => console.log(res.data))
       .catch (err => console.log(err));
 

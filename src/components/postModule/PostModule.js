@@ -41,7 +41,7 @@ export default function PostPage(props) {
   useEffect(() => {
 
     // Grab author details
-    Axios.get(`https://spartansocial-api.herokuapp.com/users/${props.postAuthor}`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`users/${props.postAuthor}`)
     .then (res => {
       setAuthor(res.data);
       setAdmin(res.data.admin);
@@ -62,7 +62,7 @@ export default function PostPage(props) {
       setLogged(true);
       
       // Grab user data.
-      Axios.get(`https://spartansocial-api.herokuapp.com/users/${userTemp}`)
+      Axios.get(process.env.REACT_APP_API_BASE_URL+`users/${userTemp}`)
         .then (res => {
           // Check if the post has already been upvoted by user.
           if (res.data.upvotedPosts.includes(props.postID)) {
@@ -89,7 +89,7 @@ export default function PostPage(props) {
   // Upvote function to add an upvote, incrementing the upvote counter by 1.
   function addUpvote() {
     if (isLogged) {
-      Axios.post(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/upvote`, {userID});
+      Axios.post(process.env.REACT_APP_API_BASE_URL+`forums/posts/${props.postID}/upvote`, {userID});
       setUpvote(!upvote);
       setUpcount(upCount+1);
     } else {
@@ -100,7 +100,7 @@ export default function PostPage(props) {
   // Remove upvote function to remove an upvote, decrementing the upvote counter by -1.
   function removeUpvote() {
     if (isLogged) {
-      Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/upvote`, {data: {userID}})
+      Axios.delete(process.env.REACT_APP_API_BASE_URL+`forums/posts/${props.postID}/upvote`, {data: {userID}});
       setUpvote(!upvote);
       setUpcount(upCount-1);
     } else {
@@ -111,7 +111,7 @@ export default function PostPage(props) {
   // Add a downvote, decrements the downvote counter by -1.
   function addDownvote() {
     if (isLogged) {
-      Axios.post(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/downvote`, {userID});
+      Axios.post(process.env.REACT_APP_API_BASE_URL+`forums/posts/${props.postID}/downvote`, {userID});
       setDownvote(true);
       setDowncount(downCount-1);
     } else {
@@ -122,7 +122,7 @@ export default function PostPage(props) {
   // Removes a downvote, increments the upvote counter by 1.
   function removeDownvote() {
     if (isLogged) {
-      Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}/downvote`, {data: {userID}})
+      Axios.delete(process.env.REACT_APP_API_BASE_URL+`forums/posts/${props.postID}/downvote`, {data: {userID}})
       setDownvote(false);
       setDowncount(downCount+1);
     } else {
@@ -159,7 +159,7 @@ export default function PostPage(props) {
   // Function delete a post from the database.
   function deletePost(e) {
     e.stopPropagation();
-    Axios.delete(`https://spartansocial-api.herokuapp.com/forums/posts/${props.postID}`)
+    Axios.delete(process.env.REACT_APP_API_BASE_URL+`forums/posts/${props.postID}`)
       .then (() => {
         if (postId) {
           navigate(`/${parentForumId}/${subForumId}`);

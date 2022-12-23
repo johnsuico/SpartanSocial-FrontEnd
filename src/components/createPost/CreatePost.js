@@ -59,7 +59,7 @@ export default function CreatePost() {
     }
 
     // API post request to create a new post in a specific subforum. "newPost" above is the payload for this request.
-    Axios.post(`https://spartansocial-api.herokuapp.com/forums/subForum/${subForumId}/post`, newPost);
+    Axios.post(process.env.REACT_APP_API_BASE_URL+`forums/subForum/${subForumId}/post`, newPost);
 
     // After submitting the API post request, reroute the user back to the subforum.
     navigate(`/${parentForumId}/${subForumId}`);

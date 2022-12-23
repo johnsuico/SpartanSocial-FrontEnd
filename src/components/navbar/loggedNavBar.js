@@ -23,10 +23,9 @@ export default function Landing(props) {
     navigate(0);
   }
 
-
   useEffect(() => {
     // API GET request to grab the user's data from the database.
-    Axios.get(`https://spartansocial-api.herokuapp.com/users/${props.userID}`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`users/${props.userID}`)
     .then(res => {
       setUser(res.data);
     })

@@ -61,7 +61,7 @@ export default function Login() {
     }
 
     // API POST request to send the data to the database to update the user's data.
-    Axios.post(`https://spartansocial-api.herokuapp.com/users/${id}/register/cp3`, updateAccountInfo)
+    Axios.post(process.env.REACT_APP_API_BASE_URL+`users/${id}/register/cp3`, updateAccountInfo)
     .then(res => {
       localStorage.setItem('user', JSON.stringify(res.data.user))
       navigate(`/`);

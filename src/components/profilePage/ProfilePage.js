@@ -41,7 +41,7 @@ export default function ProfilePage() {
     }
 
     // API GET request to fetch the logged in user's data.
-    Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`users/${userID}`)
       .then (res => {
         setUser(res.data);
         setAdmin(res.data.admin);

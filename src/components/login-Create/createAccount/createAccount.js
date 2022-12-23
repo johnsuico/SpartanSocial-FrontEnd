@@ -46,7 +46,7 @@ export default function Login() {
       confirmPass
     }
 
-    Axios.post(`https://spartansocial-api.herokuapp.com/users/register`, user)
+    Axios.post(process.env.REACT_APP_API_BASE_URL+`users/register`, user)
     .then(res => {
       localStorage.setItem('user', JSON.stringify(res.data.newRegUser));
       navigate(`/createAccount/${res.data.newRegUser.user_id}/cp2`);

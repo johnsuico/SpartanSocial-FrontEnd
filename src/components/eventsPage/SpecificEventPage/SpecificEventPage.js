@@ -28,8 +28,9 @@ export default function SpecificEvent() {
       setLogged(true);
       const userInStorage = JSON.parse(localStorage.getItem('user'));
       setUserID(userInStorage.user_id);
+      const userIDTemp = userInStorage.user_id;
 
-      Axios.get(`https://spartansocial-api.herokuapp.com/users/${userID}`)
+      Axios.get(process.env.REACT_APP_API_BASE_URL+`users/${userIDTemp}`)
         .then (res => {
 
           if (res.data.goingEvents === undefined) {
@@ -52,7 +53,7 @@ export default function SpecificEvent() {
       setLogged(false);
     }
 
-    Axios.get(`https://spartansocial-api.herokuapp.com/events/${eventID}`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`events/${eventID}`)
       .then (res => {
         setEvent(res.data);
       })
@@ -60,7 +61,7 @@ export default function SpecificEvent() {
         console.log(err);
       })
 
-    Axios.get(`https://spartansocial-api.herokuapp.com/users/${eventCreatorID}`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`users/${eventCreatorID}`)
       .then (res => {
         setEventCreator(res.data);
       })
@@ -70,22 +71,22 @@ export default function SpecificEvent() {
   }, [])
 
   function addGoing() {
-    Axios.post(`https://spartansocial-api.herokuapp.com/events/${eventID}/going`, {userID});
+    Axios.post(process.env.REACT_APP_API_BASE_URL+`events/${eventID}/going`, {userID});
     setGoing(true);
   }
 
   function removeGoing() {
-    Axios.delete(`https://spartansocial-api.herokuapp.com/events/${eventID}/going`, {data: {userID}});
+    Axios.delete(process.env.REACT_APP_API_BASE_URL+`events/${eventID}/going`, {data: {userID}});
     setGoing(false);
   }
 
   function addNotGoing() {
-    Axios.post(`https://spartansocial-api.herokuapp.com/events/${eventID}/notGoing`, {userID})
+    Axios.post(process.env.REACT_APP_API_BASE_URL+`events/${eventID}/notGoing`, {userID});
     setNotGoing(true);
   }
   
   function removeNotGoing() {
-    Axios.delete(`https://spartansocial-api.herokuapp.com/events/${eventID}/notGoing`, {data: {userID}});
+    Axios.delete(process.env.REACT_APP_API_BASE_URL+`events/${eventID}/notGoing`, {data: {userID}});
     setNotGoing(false);
   }
 
@@ -125,7 +126,7 @@ export default function SpecificEvent() {
 
   function deleteEvent() {
     // DELETE /events/:eventID
-    Axios.delete(`https://spartansocial-api.herokuapp.com/events/${eventID}`)
+    Axios.delete(process.env.REACT_APP_API_BASE_URL+`events/${eventID}`);
 
     navigate(`/events`);
   }

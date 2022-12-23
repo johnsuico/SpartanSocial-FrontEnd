@@ -20,7 +20,7 @@ export default function GeneralForum(props) {
       // Do nothing, wait for it to load
     } else {
       // API GET request to grab all of the subforums within a mainforum.
-      Axios.get(`https://spartansocial-api.herokuapp.com/forums/mainForum/${props.mainForumID}/subForum`)
+      Axios.get(process.env.REACT_APP_API_BASE_URL+`forums/mainForum/${props.mainForumID}/subForum`)
       .then(res => {
         setSubforums(res.data);
       })

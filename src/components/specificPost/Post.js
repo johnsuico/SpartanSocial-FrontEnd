@@ -41,7 +41,7 @@ export default function SpecificPost() {
     }
 
     // Get post details
-    Axios.get(`https://spartansocial-api.herokuapp.com/forums/posts/${postId}`)
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`forums/posts/${postId}`)
       .then (res => {
         setPost(res.data);
         setPostCommentLength(res.data.forumComments.length);
@@ -50,8 +50,8 @@ export default function SpecificPost() {
         console.log(err);
       })
 
-      // Get comments in the post.
-    Axios.get(`https://spartansocial-api.herokuapp.com/comments/${postId}`)
+    // Get comments in the post.
+    Axios.get(process.env.REACT_APP_API_BASE_URL+`comments/${postId}`)
       .then (res => {
         setCommentArray(res.data);
       })
@@ -79,7 +79,7 @@ export default function SpecificPost() {
       };
 
       // API POST request to send the comment data to the database and add it to the post.
-      Axios.post(`https://spartansocial-api.herokuapp.com/comments/${postId}`, sendComment)
+      Axios.post(process.env.REACT_APP_API_BASE_URL+`comments/${postId}`, sendComment)
       .then()
       .catch(err => console.log(err));
 

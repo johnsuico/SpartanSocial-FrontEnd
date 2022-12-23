@@ -66,7 +66,7 @@ export default function Login() {
       isStudent
     }
 
-    Axios.post(`https://spartansocial-api.herokuapp.com/users/${id}/register/cp2`, updateAccountInfo)
+    Axios.post(process.env.REACT_APP_API_BASE_URL+`users/${id}/register/cp2`, updateAccountInfo)
     .then(res => {
       navigate(`/createAccount/${id}/cp3`);
     })
