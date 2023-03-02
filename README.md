@@ -7,8 +7,6 @@ The goal of this project was to create a website that new SJSU can turn to when 
 
 [SpartanSocial API Repo](https://github.com/johnsuico/SpartanSocial-API)
 
-[Live Demo](https://spartansocial.netlify.app/)
-
 ## Features
 
 - Account System
